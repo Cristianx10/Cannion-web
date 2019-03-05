@@ -5,6 +5,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+  font-size: 3em;
+  text-align: center;
+}
+
 h2 {
   text-align: center;
   font-size: 2em;
@@ -238,7 +243,8 @@ li {
     */
 }
 
-.galeria img, .galeria div {
+.galeria img,
+.galeria div {
   -ms-flex-preferred-size: 30%;
       flex-basis: 30%;
   height: 300px;
@@ -319,7 +325,8 @@ li {
   background: #5C9F79;
 }
 
-.fecha__especifica__atras, .fecha__especifica__adelante {
+.fecha__especifica__atras,
+.fecha__especifica__adelante {
   width: 100px;
   height: 200px;
 }
@@ -356,6 +363,27 @@ li {
 
 .calendario__titulares td {
   background: #F9B233;
+}
+
+.tabla {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  vertical-align: middle;
+}
+
+.tabla tr {
+  width: 7%;
+  height: 100px;
+  background: #EDEDED;
+}
+
+.tabla tr:nth-child(odd) {
+  background: #EDEDED;
+}
+
+.tabla tr:nth-child(even) {
+  background: lightgrey;
 }
 
 .cont_tienda {
