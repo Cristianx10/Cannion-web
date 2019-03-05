@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+section {
+    margin: 10px 0;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+.centrar,
+.cont {
+    margin: auto;
+    max-width: 1280px;
+    position: relative;
+}
+
+.cabecera__prin {
+    background-size: cover;
+}
+
+.cabecera__prin__cont {}
+
+.cabecera__prin__cont__cabecera {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+}
+
+.cabecera__prin__cont__cabecera__logo {}
+
+.cabecera__prin__cont__cabecera__navegacion {}
+
+.navegacion__prin ul {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.navegacion__prin li {
+    list-style: none;
+    display: block;
+}
+
+.navegacion__prin__item {
+    a {
+        color: white;
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 10px;
+        display: block;
+        min-height: 70px;
+        margin: 0 20px;
+        transition: all .5s ease;
+    }
+    a:hover {
+        background: white;
+        color: black;
+        border-radius: 10px;
+    }
+}
+
+.cabecera__prin__cont__formulario {
+    display: flex;
+}
+
+.cabecera__prin__cont__formulario__principal {
+    text-align: center;
+    margin: auto;
+    color: white;
+    padding: 50px;
+    width: 50%;
+   
+}
+
+.cabecera__prin__cont__formulario__registro {
+    width: 50%;
+}
+
+.boton {
+    font-size: 1.5em;
+    color: white;
+    background: #EE9D17;
+    border: none;
+    padding: 8px 30px;
+    border-radius: 15px;
+    width: 80%;
+    margin: auto;
+    transition: all .5s ease;
+}
+
+.boton:hover {
+    cursor: pointer;
+    background: #CBCB41;
+}
+
+.formulario__suscripcion {
+    background: rgba(96, 76, 52, 0.603);
+    padding: 20px;
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+    input,
+    textarea {
+        color: black;
+        height: 40px;
+        width: 300px;
+        margin: 5px auto;
+    }
+    textarea {
+        height: 100px;
+    }
+}
+
+.formulario__suscripcion__suscribir {}
+
+.visitas__contador {}
+
+.redes {
+    position: absolute;
+    right: 0;
+    z-index: 100000000;
+}
+
+.redes__item {}
+
+.cont {
+    * {
+        margin: 20px auto;
+    }
+}
+
+.cont__somos {
+    display: flex;
+}
+
+.cont__somos__video {}
+
+.cont__somos__informacion {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    * {
+        margin: 40px auto;
+    }
+}
+
+.cont__como-ayudar {
+    padding: 50px;
+    background: #F2F2F2;
+    * {
+        margin: 40px auto;
+    }
+}
+
+.cont__como-ayudar__informacion {}
+
+.separador {}
+
+.cont__como-ayudar__informacion__titulo {}
+
+.cont__como-ayudar__informacion__parrafo {}
+
+.cont__oferta {
+    display: flex;
+    justify-content: space-around;
+  
+}
+
+.oferta {
+    box-shadow: 0px 0px 45px 3px rgba(0, 0, 0, 0.75);
+    margin: 10px;
+    padding: 50px;
+    border-radius: 50px;
+    li {
+        list-style-image: url('../images/lista.png');
+        
+    }
+
+    .boton {
+        width: 100%;
+    }
+}
+
+.oferta__titulo {}
+
+.oferta__caracteristica {}
+
+.oferta__caracteristica__item {
+   
+   
+}
+
+.cont__galeria {}
+
+.galeria {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: all .5s ease;
+    img:first-child {
+        width: 800px;
+        height: 300px;
+    }
+    img,
+    div {
+        width: 400px;
+        height: 300px;
+    }
+    .vertical {
+        flex-direction: column;
+        flex-basis: 100%;
+    }
+}
+
+.filtro__sobre {}
+
+.cont__testimonios {}
+
+.seperador {}
+
+.cont__testimonios__lista {
+    display: flex;
+    flex-direction: row;
+}
+
+.testimonio {}
+
+.testimonio__imagen {}
+
+.testimonio__informacion {}
+
+.testimonio__informacion__titulo {}
+
+.testimonio_informacion__comentario {}
+
+.cont__fecha {}
+
+.fecha__especifica {}
+
+.fehca__calendario {}
+
+.calendario {}
+
+.calendario__titulares {}
+
+.cont__estadistica {}
+
+.cont__estadistica__titulo {}
+
+.tabla {}
+
+.tabla__titulares {}
+
+.cont_tienda {
+    display: flex;
+    flex-direction: row;
+}
+
+.producto {
+    background: #5C9F79;
+    margin: 0 20px;
+    border-radius: 30px;
+}
+
+.producto__titulo {}
+
+.producto__caracteristica {}
+
+.cont__publicidad {}
+
+.publicidad {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 200px;
+    background: #D8EFE2;
+    font-size: 3em;
+    text-align: center;
+    section {
+        margin: 0px;
+    }
+    img {
+        height: 100%;
+        ;
+    }
+    * {
+        margin: auto;
+    }
+}
+
+.publicidad__imagen {}
+
+.publicidad__contenido {}
+
+.publicidad__secundaria-imagen {}
+
+footer {
+    background: #F2F2F2;
+}
+
+.pie-pagina {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.pie-pagina__logo {}
+
+.pie-pagina__contacto {
+    text-align: center;
+    margin: auto;
+    font-size: 2em;
+}
+
+.info-contacto {}
+
+.pie-pagina__derechos {
+    background: #C6C6C6;
+}
