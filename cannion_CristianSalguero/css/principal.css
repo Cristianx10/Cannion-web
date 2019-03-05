@@ -302,6 +302,62 @@ li {
   max-width: 200px;
 }
 
+.fecha__especifica {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.fecha__espeficica__ver {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 4em;
+  text-align: center;
+  width: 30%;
+  font-weight: bold;
+  background: #5C9F79;
+}
+
+.fecha__especifica__atras, .fecha__especifica__adelante {
+  width: 100px;
+  height: 200px;
+}
+
+.fecha__especifica__atras {
+  background: red;
+}
+
+.fecha__especifica__adelante {
+  background: yellow;
+}
+
+.fecha__especifica__info {
+  width: 70%;
+}
+
+.calendario {
+  width: 100%;
+  text-align: center;
+  font-size: 3em;
+  vertical-align: middle;
+}
+
+.calendario td {
+  width: 7%;
+  height: 100px;
+  background: #EDEDED;
+}
+
+.calendario td:hover {
+  cursor: pointer;
+  background: lightgrey;
+}
+
+.calendario__titulares td {
+  background: #F9B233;
+}
+
 .cont_tienda {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -301,15 +301,73 @@ li {
 
 .testimonio_informacion__comentario {}
 
-.cont__fecha {}
+.cont__fecha {
+    
+}
 
-.fecha__especifica {}
+.fecha__especifica{
+    display: flex;
+}
 
-.fehca__calendario {}
+.fecha__espeficica__ver{
+    display: flex;
+    font-size: 4em;
+    text-align: center;
+    width: 30%;
+    font-weight: bold;
+    background: #5C9F79;
+}
 
-.calendario {}
 
-.calendario__titulares {}
+.fecha__especifica__atras, .fecha__especifica__adelante{
+    width: 100px;
+    height: 200px;
+}
+
+
+.fecha__especifica__atras{
+    background: red;
+  
+}
+.fecha__especifica__adelante{
+    background: yellow;
+}
+
+.fecha__especifica__mes{}
+.fecha__especifica__dia{}
+
+.fecha__especifica__info{
+    width: 70%;
+}
+.fecha__especifica__info__titulo{}
+.fecha__especifica__info__hora{}
+.fecha__especifica__info__descripcion{}
+
+
+.fecha__calendario {}
+
+.calendario {
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+    vertical-align: middle;
+    td{
+        width: 7%;
+        height: 100px;
+        background: #EDEDED;
+    }
+
+    td:hover{
+        cursor: pointer;
+        background: lightgrey;
+    }
+}
+
+.calendario__titulares {
+    td{
+        background: #F9B233;
+    }
+}
 
 .cont__estadistica {}
 
