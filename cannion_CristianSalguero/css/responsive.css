@@ -1,0 +1,12 @@
+@media (max-width: 720px) {
+  .cont__oferta, .cont__testimonios__lista, .cont_tienda {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .producto {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */

@@ -9,6 +9,10 @@ h2 {
     font-size: 2em;
 }
 
+div{
+    margin: 10px;
+}
+
 a {
     text-decoration: none;
 }
@@ -49,9 +53,13 @@ li {
     margin: 0px;
 }
 
-.cabecera__prin__cont__cabecera__logo {}
+.cabecera__prin__cont__cabecera__logo {
+    width: 30%;
+}
 
-.cabecera__prin__cont__cabecera__navegacion {}
+.cabecera__prin__cont__cabecera__navegacion {
+    width: 70%;
+}
 
 .navegacion__prin ul {
     display: flex;
@@ -148,7 +156,7 @@ li {
 
 .cont {
     * {
-        margin: 20px auto;
+        margin: 20px 10px;
     }
 }
 
@@ -277,7 +285,15 @@ li {
 
 .testimonio {}
 
-.testimonio__imagen {}
+.testimonio__imagen {
+    text-align: center;
+    padding: 50px;
+    img{
+      max-width: 200px;
+      
+      
+    }
+}
 
 .testimonio__informacion {}
 
@@ -311,7 +327,11 @@ li {
 .producto {
     background: #5C9F79;
     margin: 0 20px;
+    width: 30%;
     border-radius: 30px;
+    img{
+        width: 100%;
+    }
 }
 
 .producto__titulo {}
@@ -325,6 +345,7 @@ li {
     flex-direction: row;
     justify-content: space-between;
     height: 200px;
+    width: 30%;
     background: #D8EFE2;
     font-size: 3em;
     text-align: center;

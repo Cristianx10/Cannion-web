@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,MAAM,EAAE,SAAS,EAAE,KAAK;EAGpB,AAAA,aAAa,EAAC,yBAAyB,EAAE,YAAY,CAAA;IACjD,cAAc,EAAE,MAAM;GACzB;EAED,AAAA,SAAS,CAAC;IACN,KAAK,EAAE,IAAI;GAEd",
+    "sources": [
+        "responsive.scss"
+    ],
+    "names": [],
+    "file": "responsive.css"
+}
