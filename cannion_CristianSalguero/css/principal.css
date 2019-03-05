@@ -218,26 +218,57 @@ li {
       flex-wrap: wrap;
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
+  /* img,
+    div {
+        width: 400px;
+        height: 300px;
+    }
+    */
+}
+
+.galeria img, .galeria div {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  height: 300px;
+  max-width: 33%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin: 3px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .galeria img:first-child {
-  width: 800px;
-  height: 300px;
+  width: 67%;
+  height: 400px;
+  max-width: 100%;
 }
 
-.galeria img,
-.galeria div {
-  width: 400px;
-  height: 300px;
+.galeria div:first-of-type {
+  width: 30%;
+  height: 400px;
+}
+
+.galeria div:first-of-type img {
+  max-width: 100%;
 }
 
 .galeria .vertical {
-  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-width: 100%;
+}
+
+.galeria .vertical img {
+  width: 100%;
+  height: 50%;
+  margin: 0px;
+  max-width: 100%;
 }
 
 .cont__testimonios__lista {
