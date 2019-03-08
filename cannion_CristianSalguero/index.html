@@ -27,16 +27,20 @@
             <div class="cabecera__prin__cont__cabecera__navegacion">
               <nav class="navegacion__prin">
                 <ul>
-                  <li class="navegacion__prin__item"><a href="#">Inicio</a></li>
                   <li class="navegacion__prin__item">
-                    <a href="#">¿Quienes somos?</a>
+                    <a id="nav__inicio" href="#">Inicio</a>
                   </li>
                   <li class="navegacion__prin__item">
-                    <a href="#">¿Porque adoptar?</a>
+                    <a id="nav__quien" href="#">¿Quienes somos?</a>
                   </li>
-                  <li class="navegacion__prin__item"><a href="#">Tienda</a></li>
                   <li class="navegacion__prin__item">
-                    <a href="#">Contacto</a>
+                    <a id="nav__porque" href="#">¿Porque adoptar?</a>
+                  </li>
+                  <li class="navegacion__prin__item">
+                    <a id="nav__tienda" href="#">Tienda</a>
+                  </li>
+                  <li class="navegacion__prin__item">
+                    <a id="nav__contacto" href="#">Contacto</a>
                   </li>
                 </ul>
               </nav>
@@ -120,10 +124,7 @@
         <div class="cont__somos__informacion">
           <h2>¿Quienes Somos?</h2>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            perspiciatis necessitatibus doloribus laudantium adipisci non hic,
-            delectus, repudiandae laboriosam quaerat impedit debitis. Ipsum
-            doloribus illo dolorem cumque neque! Sequi, tenetur.
+              Somos una coorporacion muy exitosa que busca el exito de la compañia para optimizar recursos.Somos una coorporacion muy exitosa que busca el exito de la compañia para optimizar recursos.Somos una coorporacion muy exitosa que busca el exito de la compañia para optimizar recursos.
           </p>
           <button class="boton">Ver mas...</button>
         </div>
@@ -135,10 +136,13 @@
             ¿Como puedes ayudarnos?
           </h2>
           <p class="cont__como-ayudar__informacion__parrafo">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sed,
-            possimus veritatis impedit, nostrum cum nulla similique, consequatur
-            sunt sequi animi consectetur consequuntur doloribus id repellendus
-            dolor eligendi harum cumque.
+            Por enviar todo el dinero que tenga, si es necesario embargue sus
+            cuentas, eso diriamos si estuvieramos descesperados pero esta es una
+            fundacion sin animos de lucro. Tenemos la intencion de seguir
+            progresando y ayudar a nuestros amigos caninos en busca de un nuevo
+            hogar que busca salir un hogar. Es hora de que todos nos pongamos la
+            mano en el corazon y ayudar a nuestros compañeros caninos para
+            contribuir a ayudar a los animales que aqui habitan.
           </p>
         </section>
         <section class="cont__oferta">
@@ -213,7 +217,18 @@
         </section>
         <section class="filtro__sobre">
           <h1>Galeria</h1>
-          <button>Ver</button>
+          <button id="ver__galeria" class="boton">Ver</button>
+        </section>
+      </section>
+
+      <section class="emergente">
+        <article class="galeria__secundaria">
+          <section class="galeria__secundaria__imagen"></section>
+          <section class="galeria__secundaria__lista"></section>
+        </article>
+
+        <section class="cerrar">
+          x
         </section>
       </section>
 
@@ -227,10 +242,9 @@
             <div class="testimonio__informacion">
               <h2 class="testimonio__informacion__titulo">Enrique Gonzales</h2>
               <p class="testimonio_informacion__comentario">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-                dolor tenetur adipisci similique error at eaque voluptas animi
-                ipsam et rerum repellendus harum, nostrum repudiandae esse
-                accusamus ut, quis aliquam!
+                Mi opion acerca de este servicio es escelente me ayudaron a
+                encontrar un amigo animal con el que paso todo el dia y no
+                divertimos bastante, estoy adgradecido.
               </p>
             </div>
           </div>
@@ -242,10 +256,9 @@
             <div class="testimonio__informacion">
               <h2 class="testimonio__informacion__titulo">Lorena Rojas</h2>
               <p class="testimonio_informacion__comentario">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-                dolor tenetur adipisci similique error at eaque voluptas animi
-                ipsam et rerum repellendus harum, nostrum repudiandae esse
-                accusamus ut, quis aliquam!
+                Yo soy de estados unidos y me sentia muy sola en mi apartamento
+                pero dicidi adptar una mascota y ahora tengo un compa;ero animal
+                que me acompa;a todos los dias.
               </p>
             </div>
           </div>
@@ -257,31 +270,41 @@
             <div class="testimonio__informacion">
               <h2 class="testimonio__informacion__titulo">Rodrigo Perez</h2>
               <p class="testimonio_informacion__comentario">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-                dolor tenetur adipisci similique error at eaque voluptas animi
-                ipsam et rerum repellendus harum, nostrum repudiandae esse
-                accusamus ut, quis aliquam!
+                Soy un trabajador muy augsto desde que adopte una mascota la
+                encontre abandonada pero puede ver en mis ojos que me neceistaba
+                y yo solo la ayude.
               </p>
             </div>
           </div>
         </div>
       </section>
-      <section class="cont__fecha">
+      <section
+        class="cont__fecha"
+        style="background-image: url('/images/fondo_calendario.png')"
+      >
         <article>
-          <section>
+          <section class="cont__fecha__titulo">
             <h1>Fechas</h1>
           </section>
           <section class="fecha__especifica">
             <section class="fecha__espeficica__ver">
-              <div class="fecha__especifica__atras"></div>
+              <button
+                class="fecha__especifica__atras"
+                style="background-image: url('./images/atras.png')"
+              ></button>
               <div>
                 <div class="fecha__especifica__mes">Feb</div>
                 <div class="fecha__especifica__dia">7</div>
               </div>
-              <div class="fecha__especifica__adelante"></div>
+              <button
+                class="fecha__especifica__adelante"
+                style="background-image: url('./images/adelante.png')"
+              ></button>
             </section>
             <section class="fecha__especifica__info">
-              <h2 class="fecha__especifica__info__titulo">Marcha de concientización</h2>
+              <h2 class="fecha__especifica__info__titulo">
+                Marcha de concientización
+              </h2>
               <h3 class="fecha__especifica__info__hora">08:00 AM - 10:00 AM</h3>
               <p class="fecha__especifica__info__descripcion">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
@@ -389,39 +412,38 @@
           </tr>
         </table>
       </section>
+      <hr class="separador" />
+      <h1 class="cont__estadistica__titulo">Visita nuestro sitio</h1>
       <section class="cont_tienda">
         <div class="producto">
-          <h2 class="producto__titulo">Collar Para Perro</h2>
           <img src="./images/pro_collar.png" alt="Collar" />
+          <h2 class="producto__titulo">Collar Para Perro</h2>
           <p class="producto__caracteristica">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            veniam alias cum, provident odit iste libero consequatur, non
-            dolores quos nesciunt culpa ex molestiae modi doloremque fugit
-            deleniti animi similique.
+            Este es un producto de alta calidad que posee cualidades unicas que
+            contribuyen a un mejor desempeño y a facilitar los lazos de amitad
+            con la familia y amigos en todas partes.
           </p>
           <button class="boton">Comprar</button>
         </div>
 
         <div class="producto">
-          <h2 class="producto__titulo">Mueble Canino</h2>
           <img src="./images/pro_silla.png" alt="Silla" />
+          <h2 class="producto__titulo">Mueble Canino</h2>
           <p class="producto__caracteristica">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            veniam alias cum, provident odit iste libero consequatur, non
-            dolores quos nesciunt culpa ex molestiae modi doloremque fugit
-            deleniti animi similique.
+              Este es un producto de alta calidad que posee cualidades unicas que
+              contribuyen a un mejor desempeño y a facilitar los lazos de amitad
+              con la familia y amigos en todas partes.
           </p>
           <button class="boton">Comprar</button>
         </div>
 
         <div class="producto">
-          <h2 class="producto__titulo">Accesorios Morder</h2>
           <img src="./images/pro_jugete.png" alt="Jugete" />
+          <h2 class="producto__titulo">Accesorios Morder</h2>
           <p class="producto__caracteristica">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            veniam alias cum, provident odit iste libero consequatur, non
-            dolores quos nesciunt culpa ex molestiae modi doloremque fugit
-            deleniti animi similique.
+              Este es un producto de alta calidad que posee cualidades unicas que
+              contribuyen a un mejor desempeño y a facilitar los lazos de amitad
+              con la familia y amigos en todas partes.
           </p>
           <button class="boton">Comprar</button>
         </div>
@@ -434,7 +456,7 @@
           <section class="publicidad__contenido">
             <div>
               <h1>
-                <blockquote>Ayudanos a ayudarlos</blockquote>
+                <blockquote>"Ayudanos a ayudarlos"</blockquote>
               </h1>
             </div>
             <div>
@@ -444,14 +466,23 @@
           <section class="publicidad__secundaria-imagen">
             <img src="./images/pub_gal_2.png" alt="" />
           </section>
+          <section class="publicidad__cerrar">
+            x
+          </section>
         </article>
+      </section>
+      <section class="frase">
+        <blockquote>
+          “Animate y dale una segunda oportunidad a estos animales”
+        </blockquote>
       </section>
     </article>
     <footer>
       <div class="centrar">
         <article class="pie-pagina">
+          <section class="subir">▲</section>
           <section class="pie-pagina__logo">
-            <img src="./images/Logo.png" alt="" />
+            <img src="./images/logo-negativo.png" alt="" />
           </section>
           <section class="pie-pagina__contacto">
             <ul class="info-contacto">
@@ -468,6 +499,8 @@
       </div>
     </footer>
 
+    <script src="./js/jquery-1.8.3.min.js"></script>
+    <script src="./js/animatescroll.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
