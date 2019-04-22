@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACT,OAAO,EAAE,IAAI;CAChB;;AAED,AAAA,OAAO,CAAC;EACJ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,UAAU,EAAE,OAAO;EACnB,KAAK,EAAE,GAAG;CAeb;;AAnBD,AAMI,OANG,GAMD,GAAG,CAAC;EACF,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CACzB;;AAYL,AAAA,eAAe,CAAC;EACZ,KAAK,EAAE,GAAG;CACb",
+    "sources": [
+        "tienda.scss"
+    ],
+    "names": [],
+    "file": "tienda.css"
+}

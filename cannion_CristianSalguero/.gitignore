@@ -1,5 +1,7 @@
 node_modules
-css/principal.css
-css/principal.map
-css/responsive.css
-css/responsive.map
+public/css/principal.css
+public/css/principal.map
+public/css/responsive.css
+public/css/responsive.map
+public/css/tienda.css
+public/css/tienda.map

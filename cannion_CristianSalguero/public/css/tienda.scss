@@ -1,0 +1,29 @@
+.cont-tienda {
+    display: flex;
+    flex-direction: row;
+}
+
+.filtro {
+    display: flex;
+    flex-direction: column;
+    background: #f6f6f6;
+    width: 30%;
+
+    &>div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__relevancia {}
+
+    &__pupularidad {}
+
+    &__pupularidad {}
+
+    &__pupularidad {}
+
+}
+
+.list-productos {
+    width: 70%;
+}
