@@ -10,7 +10,6 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 var contexto = {
-
     productos: [
         {
             titulo:"collar",
@@ -40,7 +39,6 @@ var contexto = {
 };
 
 app.get('/', function(request, response){
-    
     response.render('tienda', contexto);
 });
 
