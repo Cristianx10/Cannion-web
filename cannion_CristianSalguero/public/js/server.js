@@ -44,17 +44,22 @@ app.get('/', function(request, response){
     response.render('tienda', contexto);
 });
 
-app.get('/', function(request, response){
-    
-    response.render('tienda', contexto);
+app.get('/tienda/:producto', function(request, response) {
+    let contenido = null;
+    contexto.productos.forEach(function(producto){
+        if(producto.titulo == request.params.producto){
+            contenido = producto;
+            console.log(contenido);
+            return;
+        }
+    });
+
+    if(contenido != null){
+        response.render('producto', contenido);
+    }
+
 });
 
-/*
-app.post('/login', function(request, response){
-    // crear un archivo con la información del usuario
-    console.log(request.body);
-    // redireccionar a otra página
-    response.redirect('/bienvenida');
-});*/
+
 
 app.listen(3000);
