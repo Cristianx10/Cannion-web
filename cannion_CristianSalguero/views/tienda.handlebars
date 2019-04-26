@@ -54,35 +54,131 @@
                 <button>Carrito</button>
             </header>
             <div class="filtro__pupularidad">
+                <div class="filtro__titulo">
+                    <h2>Relevancia</h2>
+                </div>
                 <form action="">
-                    <input type="radio" name="" id="">
-                    Mas relevantes
-                    </input>
-                    <input type="radio" name="" id="">
-                    Mayor precio
-                    </input>
-                    <input type="radio" name="" id="">
-                    Mas baratos
-                    </input>
+                    <label class="filtro__opcion" for="">
+                        <input type="radio" name="categoria" id="">
+                        Mas relevantes
+                    </label>
+                    <label class="filtro__opcion" for="">
+                        <input type="radio" name="categoria" id="">
+                        Mayor precio
+                    </label>
+                    <label class="filtro__opcion" for="">
+                        <input type="radio" name="categoria" id="">
+                        Menor precio
+                    </label>
                 </form>
             </div>
             <div class="filtro__etapa">
-
+                <div class="filtro__titulo">
+                    <h2>Etapa</h2>
+                </div>
+                <form action="">
+                    <label class="filtro__opcion" for="">
+                        <input type="checkbox" name="categoria" id="">
+                        Adulto
+                    </label>
+                    <label class="filtro__opcion" for="">
+                        <input type="checkbox" name="categoria" id="">
+                        Cachorro
+                    </label>
+                    <label class="filtro__opcion" for="">
+                        <input type="checkbox" name="categoria" id="">
+                        Senor
+                    </label>
+                </form>
             </div>
             <div class="filtro__marca">
-
+                <div class="filtro__titulo">
+                    <h2>Marca</h2>
+                </div>
+                <form action="">
+                    <label class="filtro__opcion" for="">
+                        <input type="checkbox" name="categoria" id="">
+                        Chucky
+                    </label>
+                    <label class="filtro__opcion" for="">
+                        <input type="checkbox" name="categoria" id="">
+                        Dog Chow
+                    </label>
+                    <label class="filtro__opcion" for="">
+                        <input type="checkbox" name="categoria" id="">
+                        Dogurment
+                    </label>
+                </form>
             </div>
             <div class="filtro__envio">
-
+                <div class="filtro__titulo">
+                    <h2>Envio</h2>
+                </div>
+                <form action="__titulo">
+                    <label class="filtro__opcion" for="">
+                        <input type="checkbox" name="categoria" id="">
+                        Gratis
+                    </label>
+                    <label class="filtro__opcion" for="">
+                        <input type="checkbox" name="categoria" id="">
+                        Davivienda
+                    </label>
+                    <label class="filtro__opcion" for="">
+                        <input type="checkbox" name="categoria" id="">
+                        Pago contraentrega
+                    </label>
+                </form>
             </div>
 
         </div>
         <div class="list-productos">
             <h2>Contenido Tienda</h2>
+            <div class="productos__lista">
+
+                {{#each productos}}
+                <div class="articulo">
+                    <div class="articulo__imagen">
+                        <img src="./images/productos/correa.png" alt="">
+                    </div>
+                    <div class="articulo__imagen">
+                        <button>Agregar</button>
+                        <h3>{{titulo}}</h3>
+                        <p>Descripcion del producto</p>
+                        <p>{{precio}}</p>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
+
+
         </div>
     </div>
 
-    
+
+    <footer>
+        <div class="centrar">
+            <article class="pie-pagina">
+                <section class="subir">▲</section>
+                <section class="pie-pagina__logo">
+                    <img src="./images/logo-negativo.png" alt="" />
+                </section>
+                <section class="pie-pagina__contacto">
+                    <ul class="info-contacto">
+                        <li><strong>Telefono</strong> 313 211 2323</li>
+                        <li><strong>Móvil:</strong> 315 211 423 23</li>
+                        <li><strong>E-mail:</strong> cannio@info.correo.com</li>
+                        <li><strong>Cali - Colombia</strong></li>
+                    </ul>
+                </section>
+            </article>
+        </div>
+        <div class="pie-pagina__derechos">
+            <h2 class="centrar">Todos los derechas reservador</h2>
+        </div>
+    </footer>
+
+
 
 </body>
 

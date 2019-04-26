@@ -9,10 +9,28 @@
     background: #f6f6f6;
     width: 30%;
 
+    
+    &__titulo{
+        width: 100%;
+        font-size: 1em;
+        margin: none;
+        
+        h2{
+            text-align: left;
+
+        }
+    }
+
     &>div {
         display: flex;
         flex-direction: column;
     }
+
+    &__opcion{
+        display: flex;
+        margin: 10px 0;
+    }
+
 
     &__relevancia {}
 
@@ -25,5 +43,16 @@
 }
 
 .list-productos {
+    
     width: 70%;
+}
+
+.productos__lista{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
 }
