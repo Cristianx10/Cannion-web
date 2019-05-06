@@ -15,25 +15,49 @@ var contexto = {
             titulo:"collar",
             imagen:"./images/productos/correa.png",
             descripcion:"Es un producto para mascotas que le permitira controlar a su mascota en cualquier momento",
-            precio:"$25.000",
+            precio:"25.000",
         },
         {
             titulo:"correa",
             imagen:"./images/productos/correa.png",
             descripcion:"Es un producto para mascotas que le permitira controlar a su mascota en cualquier momento",
-            precio:"$35.000",
+            precio:"35.000",
         },
         {
             titulo:"lazo",
             imagen:"./images/productos/correa.png",
             descripcion:"Es un producto para mascotas que le permitira controlar a su mascota en cualquier momento",
-            precio:"$15.000",
+            precio:"15.000",
+        },
+        {
+            titulo:"lazo",
+            imagen:"./images/productos/correa.png",
+            descripcion:"Es un producto para mascotas que le permitira controlar a su mascota en cualquier momento",
+            precio:"15.000",
+        },
+        {
+            titulo:"lazo",
+            imagen:"./images/productos/correa.png",
+            descripcion:"Es un producto para mascotas que le permitira controlar a su mascota en cualquier momento",
+            precio:"15.000",
+        },
+        {
+            titulo:"lazo",
+            imagen:"./images/productos/correa.png",
+            descripcion:"Es un producto para mascotas que le permitira controlar a su mascota en cualquier momento",
+            precio:"15.000",
+        },
+        {
+            titulo:"lazo",
+            imagen:"./images/productos/correa.png",
+            descripcion:"Es un producto para mascotas que le permitira controlar a su mascota en cualquier momento",
+            precio:"15.000",
         },
         {
             titulo:"comida",
             imagen:"./images/productos/correa.png",
             descripcion:"Es un producto para mascotas que le permitira controlar a su mascota en cualquier momento",
-            precio:"$50.000",
+            precio:"50.000",
         }
     ]
 };

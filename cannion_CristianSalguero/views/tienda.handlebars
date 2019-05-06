@@ -6,151 +6,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{titulo}}</title>
-    <link rel="stylesheet" href="/css/principal.css">
+ 
     <link rel="stylesheet" href="/css/tienda.css">
+    <link rel="stylesheet" href="/css/resposiveTienda.css">
 </head>
 
 <body>
-    <header class="cabecera__prin" style="background-image: url('./images/background-tienda.png');">
-        <div class="centrar">
-            <article class="cabecera__prin__cont">
-                <section class="cabecera__prin__cont__cabecera">
-                    <div class="cabecera__prin__cont__cabecera__logo">
-                        <img src="./images/Logo.png" alt="logo" />
-                    </div>
-                    <div class="cabecera__prin__cont__cabecera__navegacion">
-                        <nav class="navegacion__prin">
-                            <ul>
-                                <li class="navegacion__prin__item">
-                                    <a id="nav__inicio" href="#">Inicio</a>
-                                </li>
-                                <li class="navegacion__prin__item">
-                                    <a id="nav__quien" href="#">¿Quienes somos?</a>
-                                </li>
-                                <li class="navegacion__prin__item">
-                                    <a id="nav__porque" href="#">¿Porque adoptar?</a>
-                                </li>
-                                <li class="navegacion__prin__item">
-                                    <a id="nav__tienda" href="#">Tienda</a>
-                                </li>
-                                <li class="navegacion__prin__item">
-                                    <a id="nav__contacto" href="#">Contacto</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </section>
-            </article>
-        </div>
-    </header>
-    <h1>Tienda</h1>
-    <div class="cont-tienda">
-        <div class="filtros">
-            <header>
-                <h2>Tienda</h2>
-                <button>Carrito</button>
-            </header>
-            <div class="filtro__pupularidad">
-                <div class="filtro__titulo">
-                    <h2>Relevancia</h2>
-                </div>
-                <form action="">
-                    <label class="filtro__opcion" for="">
-                        <input type="radio" name="categoria" id="">
-                        Mas relevantes
-                    </label>
-                    <label class="filtro__opcion" for="">
-                        <input type="radio" name="categoria" id="">
-                        Mayor precio
-                    </label>
-                    <label class="filtro__opcion" for="">
-                        <input type="radio" name="categoria" id="">
-                        Menor precio
-                    </label>
-                </form>
-            </div>
-            <div class="filtro__etapa">
-                <div class="filtro__titulo">
-                    <h2>Etapa</h2>
-                </div>
-                <form action="">
-                    <label class="filtro__opcion" for="">
-                        <input type="checkbox" name="categoria" id="">
-                        Adulto
-                    </label>
-                    <label class="filtro__opcion" for="">
-                        <input type="checkbox" name="categoria" id="">
-                        Cachorro
-                    </label>
-                    <label class="filtro__opcion" for="">
-                        <input type="checkbox" name="categoria" id="">
-                        Senor
-                    </label>
-                </form>
-            </div>
-            <div class="filtro__marca">
-                <div class="filtro__titulo">
-                    <h2>Marca</h2>
-                </div>
-                <form action="">
-                    <label class="filtro__opcion" for="">
-                        <input type="checkbox" name="categoria" id="">
-                        Chucky
-                    </label>
-                    <label class="filtro__opcion" for="">
-                        <input type="checkbox" name="categoria" id="">
-                        Dog Chow
-                    </label>
-                    <label class="filtro__opcion" for="">
-                        <input type="checkbox" name="categoria" id="">
-                        Dogurment
-                    </label>
-                </form>
-            </div>
-            <div class="filtro__envio">
-                <div class="filtro__titulo">
-                    <h2>Envio</h2>
-                </div>
-                <form action="__titulo">
-                    <label class="filtro__opcion" for="">
-                        <input type="checkbox" name="categoria" id="">
-                        Gratis
-                    </label>
-                    <label class="filtro__opcion" for="">
-                        <input type="checkbox" name="categoria" id="">
-                        Davivienda
-                    </label>
-                    <label class="filtro__opcion" for="">
-                        <input type="checkbox" name="categoria" id="">
-                        Pago contraentrega
-                    </label>
-                </form>
-            </div>
+    <div class="cont-principal" style="background-image: url('./images/background-tienda.png');">
 
-        </div>
-        <div class="list-productos">
-            <h2>Contenido Tienda</h2>
-            <div class="productos__lista">
-
-                {{#each productos}}
-                <div class="articulo">
-                    <a href="/tienda/{{titulo}}">
-                        <div class="articulo__imagen">
-                            <img src="/images/productos/correa.png" alt="">
+        <header class="cabecera__prin">
+            <div class="centrar">
+                <article class="cabecera__prin__cont">
+                    <section class="cabecera__prin__cont__cabecera">
+                        <div id="menu">
+                            <div class="menu__icono"><img src="/images/lista.png" alt=""></div>
+                            <div class="menu__navegacion"></div></div>
+                        <div class="cabecera__prin__cont__cabecera__logo">
+                            <img src="/images/Logo.png" alt="logo" />
                         </div>
-                    </a>
-                    <div class="articulo__imagen">
-                        <button>Agregar</button>
-                        <h3>{{titulo}}</h3>
-                        <p>Descripcion del producto</p>
-                        <p>{{precio}}</p>
+                        <div class="cabecera__prin__cont__cabecera__navegacion">
+                            <nav class="navegacion__prin">
+                                <ul>
+                                    <li class="navegacion__prin__item">
+                                        <a id="nav__inicio" href="#">Inicio</a>
+                                    </li>
+                                    <li class="navegacion__prin__item">
+                                        <a id="nav__quien" href="#">¿Quienes somos?</a>
+                                    </li>
+                                    <li class="navegacion__prin__item">
+                                        <a id="nav__porque" href="#">¿Porque adoptar?</a>
+                                    </li>
+                                    <li class="navegacion__prin__item">
+                                        <a id="nav__tienda" href="#">Tienda</a>
+                                    </li>
+                                    <li class="navegacion__prin__item">
+                                        <a id="nav__contacto" href="#">Contacto</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div id="filtros">F</div>
+                        <div id="carrito">C</div>
+                    </section>
+                </article>
+            </div>
+        </header>
+        <h1>Tienda</h1>
+        <div class="cont-tienda">
+            <div class="filtros">
+                <header>
+                    <h2>Tienda</h2>
+                    <button>Carrito</button>
+                </header>
+                <div class="filtro__pupularidad">
+                    <div class="filtro__titulo">
+                        <h2>Relevancia</h2>
                     </div>
+                    <form action="">
+                        <label class="filtro__opcion" for="">
+                            <input type="radio" name="categoria" id="">
+                            Mas relevantes
+                        </label>
+                        <label class="filtro__opcion" for="">
+                            <input type="radio" name="categoria" id="">
+                            Mayor precio
+                        </label>
+                        <label class="filtro__opcion" for="">
+                            <input type="radio" name="categoria" id="">
+                            Menor precio
+                        </label>
+                    </form>
                 </div>
-                {{/each}}
+                <div class="filtro__etapa">
+                    <div class="filtro__titulo">
+                        <h2>Etapa</h2>
+                    </div>
+                    <form action="">
+                        <label class="filtro__opcion" for="">
+                            <input type="checkbox" name="categoria" id="">
+                            Adulto
+                        </label>
+                        <label class="filtro__opcion" for="">
+                            <input type="checkbox" name="categoria" id="">
+                            Cachorro
+                        </label>
+                        <label class="filtro__opcion" for="">
+                            <input type="checkbox" name="categoria" id="">
+                            Senor
+                        </label>
+                    </form>
+                </div>
+                <div class="filtro__marca">
+                    <div class="filtro__titulo">
+                        <h2>Marca</h2>
+                    </div>
+                    <form action="">
+                        <label class="filtro__opcion" for="">
+                            <input type="checkbox" name="categoria" id="">
+                            Chucky
+                        </label>
+                        <label class="filtro__opcion" for="">
+                            <input type="checkbox" name="categoria" id="">
+                            Dog Chow
+                        </label>
+                        <label class="filtro__opcion" for="">
+                            <input type="checkbox" name="categoria" id="">
+                            Dogurment
+                        </label>
+                    </form>
+                </div>
+                <div class="filtro__envio">
+                    <div class="filtro__titulo">
+                        <h2>Envio</h2>
+                    </div>
+                    <form action="__titulo">
+                        <label class="filtro__opcion" for="">
+                            <input type="checkbox" name="categoria" id="">
+                            Gratis
+                        </label>
+                        <label class="filtro__opcion" for="">
+                            <input type="checkbox" name="categoria" id="">
+                            Davivienda
+                        </label>
+                        <label class="filtro__opcion" for="">
+                            <input type="checkbox" name="categoria" id="">
+                            Pago contraentrega
+                        </label>
+                    </form>
+                </div>
 
             </div>
+            <div class="list-productos">
+                <h2>Contenido Tienda</h2>
+                <div class="productos__lista">
+
+                    {{#each productos}}
+                    <div class="articulo">
+                        <div class="articulo__imagen">
+                            <a href="/tienda/{{titulo}}">
+                                <div class="articulo__imagen__imagen">
+                                    <img src="/images/productos/correa.png" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="articulo__informacion">
+                            <button class="articulo__informacion__agregar">+</button>
+                            <p class="articulo__informacion__precio">${{precio}}</p>
+                            <h3 class="articulo__informacion__titulo">{{titulo}}</h3>
+                            <!--<p class="articulo__informacion__descripcion">Descripcion del producto</p>-->
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
 
 
+            </div>
         </div>
     </div>
 
@@ -178,7 +189,7 @@
     </footer>
 
 
-
+    <script src="/js/tienda.js"></script>
 </body>
 
 </html>

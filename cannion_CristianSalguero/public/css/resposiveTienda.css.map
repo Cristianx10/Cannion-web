@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAMA,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EAC/B,AAAA,+BAA+B,CAAA;IAC3B,cAAc,EAAE,GAAG;IACnB,UAAU,EAAE,OAAO;GACtB;EAED,AAAA,KAAK,CAAC;IACF,OAAO,EAAE,IAAI;GAChB;;;AAKL,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK,OAAO,SAAS,EAAE,KAAK;EAEtD,AAAA,+BAA+B,CAAA;IAC3B,cAAc,EAAE,MAAM;GACzB",
+    "sources": [
+        "resposiveTienda.scss"
+    ],
+    "names": [],
+    "file": "resposiveTienda.css"
+}
