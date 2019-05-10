@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{titulo}}</title>
- 
+
     <link rel="stylesheet" href="/css/tienda.css">
     <link rel="stylesheet" href="/css/resposiveTienda.css">
 </head>
@@ -19,8 +19,9 @@
                 <article class="cabecera__prin__cont">
                     <section class="cabecera__prin__cont__cabecera">
                         <div id="menu">
-                            <div class="menu__icono"><img src="/images/lista.png" alt=""></div>
-                            <div class="menu__navegacion"></div></div>
+                            <div class="filtro__icono"><img src="/images/iconos/icon-menu.svg" alt=""></div>
+                            <div class="filtro__navegacion"></div>
+                        </div>
                         <div class="cabecera__prin__cont__cabecera__logo">
                             <img src="/images/Logo.png" alt="logo" />
                         </div>
@@ -45,96 +46,160 @@
                                 </ul>
                             </nav>
                         </div>
-                        <div id="filtros">F</div>
-                        <div id="carrito">C</div>
+                        <div id="filtros">
+                            <div class="menu__icono"><img src="/images/iconos/icon_filtro.svg" alt=""></div>
+                            <div class="menu__navegacion"></div>
+                        </div>
+                        <div id="carrito">
+                            <div class="carrito__icono"><img src="/images/iconos/icon-carrito.svg" alt=""></div>
+                            <div class="carrito__navegacion"></div>
+                        </div>
                     </section>
                 </article>
             </div>
         </header>
         <h1>Tienda</h1>
         <div class="cont-tienda">
-            <div class="filtros">
-                <header>
-                    <h2>Tienda</h2>
-                    <button>Carrito</button>
-                </header>
-                <div class="filtro__pupularidad">
-                    <div class="filtro__titulo">
-                        <h2>Relevancia</h2>
-                    </div>
-                    <form action="">
-                        <label class="filtro__opcion" for="">
-                            <input type="radio" name="categoria" id="">
-                            Mas relevantes
-                        </label>
-                        <label class="filtro__opcion" for="">
-                            <input type="radio" name="categoria" id="">
-                            Mayor precio
-                        </label>
-                        <label class="filtro__opcion" for="">
-                            <input type="radio" name="categoria" id="">
-                            Menor precio
-                        </label>
-                    </form>
-                </div>
-                <div class="filtro__etapa">
-                    <div class="filtro__titulo">
-                        <h2>Etapa</h2>
-                    </div>
-                    <form action="">
-                        <label class="filtro__opcion" for="">
-                            <input type="checkbox" name="categoria" id="">
-                            Adulto
-                        </label>
-                        <label class="filtro__opcion" for="">
-                            <input type="checkbox" name="categoria" id="">
-                            Cachorro
-                        </label>
-                        <label class="filtro__opcion" for="">
-                            <input type="checkbox" name="categoria" id="">
-                            Senor
-                        </label>
-                    </form>
-                </div>
-                <div class="filtro__marca">
-                    <div class="filtro__titulo">
-                        <h2>Marca</h2>
-                    </div>
-                    <form action="">
-                        <label class="filtro__opcion" for="">
-                            <input type="checkbox" name="categoria" id="">
-                            Chucky
-                        </label>
-                        <label class="filtro__opcion" for="">
-                            <input type="checkbox" name="categoria" id="">
-                            Dog Chow
-                        </label>
-                        <label class="filtro__opcion" for="">
-                            <input type="checkbox" name="categoria" id="">
-                            Dogurment
-                        </label>
-                    </form>
-                </div>
-                <div class="filtro__envio">
-                    <div class="filtro__titulo">
-                        <h2>Envio</h2>
-                    </div>
-                    <form action="__titulo">
-                        <label class="filtro__opcion" for="">
-                            <input type="checkbox" name="categoria" id="">
-                            Gratis
-                        </label>
-                        <label class="filtro__opcion" for="">
-                            <input type="checkbox" name="categoria" id="">
-                            Davivienda
-                        </label>
-                        <label class="filtro__opcion" for="">
-                            <input type="checkbox" name="categoria" id="">
-                            Pago contraentrega
-                        </label>
-                    </form>
-                </div>
+            <div class="cont__filtros">
 
+                <div class="filtros">
+                    <header>
+                        <h2>Tienda</h2>
+                        <button>Carrito</button>
+                    </header>
+                    <div class="filtro__pupularidad">
+                        <div class="filtro__titulo">
+                            <h2>Relevancia</h2>
+                        </div>
+                        <form action="">
+                            <label class="filtro__opcion" for="">
+                                <input type="radio" name="categoria" id="">
+                                <p>Mas relevantes</p>
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">
+                                        <img src="/images/iconos/icon_relevante.svg" alt="">
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="filtro__opcion" for="">
+                                <input type="radio" name="categoria" id="">
+                                <p>Mayor precio</p>
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">
+                                        <img src="/images/iconos/icon_caro.svg" alt="">
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="filtro__opcion" for="">
+                                <input type="radio" name="categoria" id="">
+                                <p>Menor precio</p>
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">
+                                        <img src="/images/iconos/icon_barato.svg" alt="">
+                                    </div>
+                                </div>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="filtro__etapa">
+                        <div class="filtro__titulo">
+                            <h2>Etapa</h2>
+                        </div>
+                        <form action="">
+                            <label class="filtro__opcion" for="">
+                                <input type="checkbox" name="categoria" id="">
+
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">
+                                        <img src="/images/iconos/icon_pero_g.svg" alt="">
+                                    </div>
+                                </div>
+
+                                <p>Adulto</p>
+                            </label>
+                            <label class="filtro__opcion" for="">
+                                <input type="checkbox" name="categoria" id="">
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">
+                                        <img src="/images/iconos/icon_perro_p.svg" alt="">
+                                    </div>
+                                </div>
+                                <p>Cachorro</p>
+                            </label>
+                            <label class="filtro__opcion" for="">
+                                <input type="checkbox" name="categoria" id="">
+                                <p>Senor</p>
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">
+                                        <img src="/images/iconos/icon_perro_s.svg" alt="">
+                                    </div>
+                                </div>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="filtro__marca">
+                        <div class="filtro__titulo">
+                            <h2>Marca</h2>
+                        </div>
+                        <form action="">
+                            <label class="filtro__opcion" for="">
+                                <input type="checkbox" name="categoria" id="">
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">C</div>
+                                </div>
+                                <p>Chucky</p>
+                            </label>
+                            <label class="filtro__opcion" for="">
+                                <input type="checkbox" name="categoria" id="">
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">D</div>
+                                </div>
+                                <p>Dog Chow</p>
+                            </label>
+                            <label class="filtro__opcion" for="">
+                                <input type="checkbox" name="categoria" id="">
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">G</div>
+                                </div>
+                                <p>Dogurment</p>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="filtro__envio">
+                        <div class="filtro__titulo">
+                            <h2>Envio</h2>
+                        </div>
+                        <form action="__titulo">
+                            <label class="filtro__opcion" for="">
+                                <input type="checkbox" name="categoria" id="">
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">
+                                        <img src="/images/iconos/icon_gratis.svg" alt="">
+
+                                    </div>
+                                </div>
+                                <p>Gratis</p>
+                            </label>
+                            <label class="filtro__opcion" for="">
+                                <input type="checkbox" name="categoria" id="">
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">S</div>
+                                </div>
+                                <p>Servientrega</p>
+                            </label>
+                            <label class="filtro__opcion" for="">
+                                <input type="checkbox" name="categoria" id="">
+                                <div class="fitro__opcion__icono">
+                                    <div class="filtro__icono">
+                                        <img src="/images/iconos/icon_contraentrega.svg" alt="">
+                                    </div>
+                                </div>
+                                <p>Pago contraentrega</p>
+                            </label>
+                        </form>
+                    </div>
+
+                </div>
             </div>
             <div class="list-productos">
                 <h2>Contenido Tienda</h2>
@@ -145,7 +210,7 @@
                         <div class="articulo__imagen">
                             <a href="/tienda/{{titulo}}">
                                 <div class="articulo__imagen__imagen">
-                                    <img src="/images/productos/correa.png" alt="">
+                                    <img src="/images/productos/casco_grande_para_mascota.png" alt=""></p>
                                 </div>
                             </a>
                         </div>

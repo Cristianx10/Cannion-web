@@ -1,10 +1,19 @@
 var navegacion = document.querySelector(".navegacion__prin");
+var filtros = document.querySelector(".navegacion__prin");
 
 var zona = {};
 
 zona.navegacion__escritorio = document.querySelector(".cabecera__prin__cont__cabecera__navegacion");
 zona.navegacion__celular = document.querySelector(".menu__navegacion");
 zona.navegacion__celular__icono = document.querySelector(".menu__icono");
+
+zona.filtro__escritorio = document.querySelector(".cont__filtros");
+zona.filtro__celular = document.querySelector("#filtros");
+zona.filtro__celular__icono = document.querySelector("#filtros");
+
+
+
+
 
 
 function cambiodepantalla(e) {
