@@ -19,8 +19,10 @@
                 <article class="cabecera__prin__cont">
                     <section class="cabecera__prin__cont__cabecera">
                         <div id="menu">
-                            <div class="filtro__icono"><img src="/images/iconos/icon-menu.svg" alt=""></div>
-                            <div class="filtro__navegacion"></div>
+                          
+                            <div class="menu__icono"><img src="/images/iconos/icon-menu.svg" alt=""></div>
+                            <div class="menu__navegacion"></div>
+                            
                         </div>
                         <div class="cabecera__prin__cont__cabecera__logo">
                             <img src="/images/Logo.png" alt="logo" />
@@ -47,8 +49,8 @@
                             </nav>
                         </div>
                         <div id="filtros">
-                            <div class="menu__icono"><img src="/images/iconos/icon_filtro.svg" alt=""></div>
-                            <div class="menu__navegacion"></div>
+                            <div class="filtro__icono"><img src="/images/iconos/icon_filtro.svg" alt=""></div>
+                            <div class="filtro__navegacion"></div>
                         </div>
                         <div id="carrito">
                             <div class="carrito__icono"><img src="/images/iconos/icon-carrito.svg" alt=""></div>
@@ -208,16 +210,16 @@
                     {{#each productos}}
                     <div class="articulo">
                         <div class="articulo__imagen">
-                            <a href="/tienda/{{titulo}}">
+                            <a href="/producto/{{nombre}}">
                                 <div class="articulo__imagen__imagen">
-                                    <img src="/images/productos/casco_grande_para_mascota.png" alt=""></p>
+                                    <img src="{{imagen}}" alt=""></p>
                                 </div>
                             </a>
                         </div>
                         <div class="articulo__informacion">
                             <button class="articulo__informacion__agregar">+</button>
-                            <p class="articulo__informacion__precio">${{precio}}</p>
-                            <h3 class="articulo__informacion__titulo">{{titulo}}</h3>
+                            <p class="articulo__informacion__precio">${{costo}}</p>
+                            <h3 class="articulo__informacion__titulo">{{nombre}}</h3>
                             <!--<p class="articulo__informacion__descripcion">Descripcion del producto</p>-->
                         </div>
                     </div>
@@ -254,7 +256,30 @@
     </footer>
 
 
-    <script src="/js/tienda.js"></script>
+    <script src="../js/tienda.js"></script>
+    <script src="../js/almacen.js"></script>
+    <script>
+
+        let data = new Almacen("tienda");
+
+        let articulos = document.querySelectorAll(".articulo");
+        let agregar = [];
+/*
+        console.log(articulos)
+*/
+        articulos.forEach((articulo)=>{
+            let agrega = {selector:articulo.querySelector(".articulo__informacion__agregar"), origen:articulo};
+            agrega.selector.addEventListener("click", ()=>{
+                let nombre = agrega.origen.querySelector(".articulo__informacion__titulo");
+                data.agregar("producto", {nombre:nombre});
+                console.log("cliccksds")
+            });
+            agregar.push(agrega);
+        });
+
+        
+
+    </script>
 </body>
 
 </html>

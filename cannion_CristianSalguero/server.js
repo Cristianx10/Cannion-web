@@ -57,37 +57,50 @@ var contexto = {
   ]
 };
 
-app.get("/", function(request, response) {
-  response.render("tienda", contexto);
-});
+app.get("/tienda", function(request, response) {
+  let contenido = {};
+  let query = {};
 
-app.get("/tienda/:producto", function(request, response) {
-  let contenido = null;
-
-  /*
   let coleccion = baseDatos.collection("productos");
-  
-  coleccion.find({}).toArray(function(err, items) {
+
+  coleccion.find(query).toArray(function(err, items) {
     test.equal(null, err);
-    items.forEach(e => {
-      console.log(e);
-    });
-    
-  });
-  */
-
-
-  contexto.productos.forEach(function(producto) {
-    if (producto.titulo == request.params.producto) {
-      contenido = producto;
-      console.log(contenido);
-      return;
+    contenido.productos = items;
+    if (contenido != null) {
+      response.render("tienda", contenido);
     }
   });
 
-  if (contenido != null) {
-    response.render("producto", contenido);
-  }
 });
 
-app.listen(3000);
+app.get("/producto/:item?", function(request, response) {
+    let contenido = null;
+    let query = {};
+  
+    let ite = request.params.item;
+    if (ite != null) {
+      query = { nombre: ite };
+    }
+  
+    let coleccion = baseDatos.collection("productos");
+  
+    coleccion.find(query).toArray(function(err, items) {
+      test.equal(null, err);
+      contenido = items;
+      if (contenido != null) {
+        response.render("producto", contenido[0]);
+      }
+    });
+  });
+
+
+  app.get("/carrito", function(request, response) {
+    let contenido = {};
+    let query = {};
+  
+    response.render("carrito", contenido);
+  });
+
+app.listen(3000, function() {
+  console.log("Escuchando en el puesto 3000");
+});
