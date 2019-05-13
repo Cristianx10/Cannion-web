@@ -20,7 +20,6 @@
                     <section class="cabecera__prin__cont__cabecera">
                         <div id="menu">
                             <div class="menu__icono"><img src="/images/iconos/icon-menu.svg" alt=""></div>
-                            <div class="menu__navegacion"></div>
                         </div>
                         <div class="cabecera__prin__cont__cabecera__logo">
                             <img src="/images/Logo.png" alt="logo" />
@@ -48,7 +47,7 @@
                         </div>
                         <div id="filtros">
                             <div class="icono"><img src="/images/iconos/icon_filtro.svg" alt=""></div>
-                            <div class="filtro__navegacion"></div>
+                            
                         </div>
                         <div id="carrito">
                         
@@ -56,6 +55,11 @@
                             <div class="carrito__navegacion"></div>
                         </div>
                     </section>
+                    <section class="zona__navegacion">
+                        <div class="menu__navegacion"></div>
+                        <div class="filtro__navegacion"></div>
+                    </section>
+
                 </article>
             </div>
         </header>
@@ -108,7 +112,7 @@
                         </div>
                         <form action="">
                             <label class="filtro__opcion">
-                                <input type="checkbox" name="categoria" id="">
+                                <input type="radio" name="categoria" id="">
 
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
@@ -119,7 +123,7 @@
                                 <p>Adulto</p>
                             </label>
                             <label class="filtro__opcion">
-                                <input type="checkbox" name="categoria" id="">
+                                <input type="radio" name="categoria" id="">
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_perro_p.svg" alt="">
@@ -128,7 +132,7 @@
                                 <p>Cachorro</p>
                             </label>
                             <label class="filtro__opcion">
-                                <input type="checkbox" name="categoria" id="">
+                                <input type="radio" name="categoria" id="">
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_perro_s.svg" alt="">
@@ -144,7 +148,7 @@
                         </div>
                         <form action="">
                             <label class="filtro__opcion">
-                                <input type="checkbox" name="categoria" id="">
+                                <input type="radio" name="categoria" id="">
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">C</div>
                                 </div>
@@ -152,14 +156,14 @@
                                 </label>
                             </label>
                             <label class="filtro__opcion">
-                                <input type="checkbox" name="categoria" id="">
+                                <input type="radio" name="categoria" id="">
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">D</div>
                                 </div>
                                 <p>Dog Chow</p>
                             </label>
                             <label class="filtro__opcion">
-                                <input type="checkbox" name="categoria" id="">
+                                <input type="radio" name="categoria" id="">
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">G</div>
                                 </div>
@@ -173,7 +177,7 @@
                         </div>
                         <form action="__titulo">
                             <label class="filtro__opcion">
-                                <input type="checkbox" name="categoria" id="">
+                                <input type="radio" name="categoria" id="">
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_gratis.svg" alt="">
@@ -183,14 +187,14 @@
                                 <p>Gratis</p>
                             </label>
                             <label class="filtro__opcion">
-                                <input type="checkbox" name="categoria" id="">
+                                <input type="radio" name="categoria" id="">
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">S</div>
                                 </div>
                                 <p>Servientrega</p>
                             </label>
                             <label class="filtro__opcion">
-                                <input type="checkbox" name="categoria" id="">
+                                <input type="radio" name="categoria" id="">
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_contraentrega.svg" alt="">
@@ -256,8 +260,8 @@
     </footer>
 
 
-    <script src="../js/tienda.js"></script>
-    <script src="../js/almacen.js"></script>
+    <script src="/js/tienda.js"></script>
+    <script src="/js/almacen.js"></script>
     <script>
 
         let data = new Almacen("tienda");
@@ -270,11 +274,11 @@
         articulos.forEach((articulo)=>{
             let agrega = {selector:articulo.querySelector(".articulo__informacion__agregar"), origen:articulo};
             agrega.selector.addEventListener("click", ()=>{
+
                 let nombre = agrega.origen.querySelector(".articulo__informacion__titulo");
                 let precio = agrega.origen.querySelector(".articulo__informacion__precio");
                 let imagen = agrega.origen.querySelector(".articulo__imagen__imagen > img");
                 let informacion = agrega.origen.querySelector(".articulo__informacion__descripcion");
-
 
                 data.agregarProducto(
                     {
