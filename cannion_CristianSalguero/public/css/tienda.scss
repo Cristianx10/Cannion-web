@@ -172,8 +172,8 @@ form {
 
 .articulo {
 
-    height: 200px;
     width: 200px;
+    height: 300px;
     padding: 15px;
     transition: all .5s ease;
 
@@ -183,7 +183,7 @@ form {
 
     &__imagen {
         margin: 0;
-        height: 60%;
+        height: 50%;
 
         &__imagen {
             display: flex;
@@ -199,7 +199,7 @@ form {
     }
 
     &__informacion {
-        height: 35%;
+        height: 45%;
         margin: 0;
         position: relative;
         background: #397BB5;
@@ -305,7 +305,6 @@ form {
 }
 
 #menu{
-    
     display: none;
     flex-direction: column;
     z-index: 100;
@@ -321,6 +320,18 @@ form {
         height: 100%;
         width: 300px;
     
+    }
+}
+
+#filtros{
+    z-index: 100;
+    .filtro__navegacion{
+        position: fixed;
+        width: 100%;
+        height: 100%;;
+        left: 0;
+        top: 95px;
+        background: rgb(255, 181, 49);
     }
 }
 
@@ -376,5 +387,9 @@ form {
 .gris {
     color: black;
     background: #FFFFFF;
+}
+
+.filtro__navegacion{
+    display: none;
 }
 

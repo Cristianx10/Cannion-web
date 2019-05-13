@@ -5,19 +5,33 @@ var Almacen = /** @class */ (function () {
         var data = JSON.parse(localStorage.getItem(id));
         if (data != null) {
             this.datos = data.datos;
+            this.productos = data.productos;
         }
         else {
             this.datos = new Array();
+            this.productos = new Array();
         }
+        this.contador.innerText = this.productos.length + "";
     }
-    Almacen.prototype.contarCon = function (tipo) {
-        var salida = [];
-        this.datos.forEach(function (d) {
-            if (d.id == tipo) {
-                salida.push(d);
+    Almacen.prototype.agregarProducto = function (valores) {
+        var temp = { id: "producto#" + (this.productos.length + 1), valor: valores };
+        this.productos.push(temp);
+        localStorage.setItem(this.id, JSON.stringify(this));
+        this.contador.innerText = this.productos.length + "";
+    };
+    Almacen.prototype.removerProducto = function (id) {
+        var _this = this;
+        this.productos.forEach(function (p, index) {
+            if (p.id == id) {
+                _this.productos.slice(index, 1);
             }
         });
-        this.contador.innerText = salida.length + "";
+        localStorage.setItem(this.id, JSON.stringify(this));
+        this.contador.innerText = this.productos.length + "";
+    };
+    Almacen.prototype.vaciarCarrito = function (tipo) {
+        this.productos = [];
+        localStorage.setItem(this.id, JSON.stringify(this));
     };
     Almacen.prototype.agregar = function (id, valores) {
         var temp = { id: id, valor: valores };
@@ -33,37 +47,8 @@ var Almacen = /** @class */ (function () {
         });
         return salida;
     };
-    Almacen.prototype.obtenerObjecto = function (tipo) {
-        var salida = [];
-        this.datos.forEach(function (d) {
-            if (d.valor.id != null && d.valor.id == tipo) {
-                salida.push(d);
-            }
-            else if (d.valor.nombre != null && d.valor.nombre == tipo) {
-                salida.push(d);
-            }
-        });
-        return salida;
-    };
     Almacen.prototype.vaciar = function (tipo) {
-        var _this = this;
-        this.datos.forEach(function (d, index) {
-            if (d.id == tipo) {
-                _this.datos.splice(index, 1);
-            }
-        });
-        localStorage.setItem(this.id, JSON.stringify(this));
-    };
-    Almacen.prototype.eliminar = function (tipo) {
-        var _this = this;
-        this.datos.forEach(function (d, index) {
-            if (d.valor.id != null && d.valor.id == tipo) {
-                _this.datos.splice(index, 1);
-            }
-            else if (d.valor.nombre != null && d.valor.nombre == tipo) {
-                _this.datos.splice(index, 1);
-            }
-        });
+        this.datos = [];
         localStorage.setItem(this.id, JSON.stringify(this));
     };
     Almacen.prototype.limpiar = function () {

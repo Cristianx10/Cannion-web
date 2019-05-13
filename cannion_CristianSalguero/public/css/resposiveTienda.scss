@@ -9,6 +9,66 @@
         flex-direction: row;
         background: #FFB531;
     }
+    .filtro__icono{
+        display: flex;
+        width: 60px;
+        height: 60px;
+        img{
+            width: 60px;
+        height: 60px;
+        }
+    }
+
+    .filtro__opcion{
+        display: flex;
+        flex-direction: column;
+
+        &__icono{
+            display: flex;
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            border-radius: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+    }
+
+    #filtros{
+
+        .filtros{
+            width: 100%;
+        }
+
+        .filtro__navegacion{
+            display: flex;
+        }
+
+        .filtro__opcion{
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & > input:checked~ div{
+                background: #FFB531;
+
+                img{
+
+                    filter: brightness(10);
+                }
+            }
+        }
+
+        form{
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+    }
+
+    
 
     #menu {
         display: flex;
