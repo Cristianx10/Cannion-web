@@ -57,6 +57,8 @@ var contexto = {
   ]
 };
 
+
+
 app.get("/tienda", function(request, response) {
   let contenido = {};
   let query = {};
@@ -70,36 +72,65 @@ app.get("/tienda", function(request, response) {
       response.render("tienda", contenido);
     }
   });
-
 });
 
 app.get("/producto/:item?", function(request, response) {
-    let contenido = null;
-    let query = {};
-  
-    let ite = request.params.item;
-    if (ite != null) {
-      query = { nombre: ite };
+  let contenido = null;
+  let query = {};
+
+  let ite = request.params.item;
+  if (ite != null) {
+    query = { nombre: ite };
+  }
+
+  let coleccion = baseDatos.collection("productos");
+
+  coleccion.find(query).toArray(function(err, items) {
+    test.equal(null, err);
+    contenido = items;
+    if (contenido != null) {
+      response.render("producto", contenido[0]);
     }
-  
-    let coleccion = baseDatos.collection("productos");
-  
-    coleccion.find(query).toArray(function(err, items) {
-      test.equal(null, err);
-      contenido = items;
-      if (contenido != null) {
-        response.render("producto", contenido[0]);
-      }
-    });
+  });
+});
+
+app.get("/ckeckout", function(request, response) {
+  response.render("checkout", contenido[0]);
+});
+
+app.post("/envio", function(request, response) {
+
+  let pedido = {
+    correo: request.body.correo,
+    fecha: new Date(),
+    estado: "En espera"
+  };
+
+  let coleccion = baseDatos.collection("pedidos");
+  coleccion.insertOne(pedido, function(err) {
+    assert.equal(err, null);
+
+    console.log("pedido guardado");
   });
 
+  let contendio = {
+    titulo: "Página principal",
+    mensaje: "pedido guardado"
+  };
 
-  app.get("/carrito", function(request, response) {
-    let contenido = {};
-    let query = {};
-  
-    response.render("carrito", contenido);
-  });
+  response.redirect("/");
+});
+
+app.get("/envioproductos", function(){
+
+});
+
+app.get("/carrito", function(request, response) {
+  let contenido = {};
+  let query = {};
+
+  response.render("carrito", contenido);
+});
 
 app.listen(3000, function() {
   console.log("Escuchando en el puesto 3000");
