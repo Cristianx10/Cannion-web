@@ -57,6 +57,11 @@ var contexto = {
   ]
 };
 
+app.get("/", function(request, response){
+
+  response.sendfile("/index.html");
+});
+
 app.get("/tienda", function(request, response) {
   let contenido = {};
   let query = {};
