@@ -1,16 +1,24 @@
+function selector(url){
+    let ref = document.querySelector(url);
+    if(ref == null){
+      console.log("La referencia: " + url + " es nula.");
+    }
+    return ref;
+}
+
 function paginaCargada(eventglobal){
-    var navegacion = document.querySelector(".navegacion__prin");
-    var filtros = document.querySelector(".filtros");
+    var navegacion = selector(".navegacion__prin");
+    var filtros = selector(".filtros");
     
     var zona = {};
     
-    zona.navegacion__escritorio = document.querySelector(".cabecera__prin__cont__cabecera__navegacion");
-    zona.navegacion__celular = document.querySelector(".menu__navegacion");
-    zona.navegacion__celular__icono = document.querySelector(".menu__icono");
+    zona.navegacion__escritorio = selector(".cabecera__prin__cont__cabecera__navegacion");
+    zona.navegacion__celular = selector(".menu__navegacion");
+    zona.navegacion__celular__icono = selector(".menu__icono");
     
-    zona.filtro__escritorio = document.querySelector(".cont__filtros");
-    zona.filtro__celular = document.querySelector("#filtros > .filtro__navegacion");
-    zona.filtro__celular__icono = document.querySelector("#filtros > .icono");
+    zona.filtro__escritorio = selector(".cont__filtros");
+    zona.filtro__celular = selector(".filtro__navegacion");
+    zona.filtro__celular__icono = selector("#filtros > .icono");
     
     
     function cambiodepantalla(e) {
@@ -36,10 +44,15 @@ function paginaCargada(eventglobal){
         zona.navegacion__celular.classList.toggle("seleccionado");
         zona.filtro__celular.classList.remove("seleccionado");
     });
+
+    zona.filtro__celular__icono.addEventListener("click", ()=>{
+        zona.filtro__celular.classList.toggle("seleccionado");
+        zona.navegacion__celular.classList.remove("seleccionado");
+    });
     
     cambiodepantalla(eventglobal);
     window.addEventListener("resize", cambiodepantalla);
- console.log("cargo")
+
 }
 
 window.addEventListener("load", paginaCargada);

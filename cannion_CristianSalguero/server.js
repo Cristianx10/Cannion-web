@@ -57,8 +57,6 @@ var contexto = {
   ]
 };
 
-
-
 app.get("/tienda", function(request, response) {
   let contenido = {};
   let query = {};
@@ -94,12 +92,54 @@ app.get("/producto/:item?", function(request, response) {
   });
 });
 
-app.get("/ckeckout", function(request, response) {
-  response.render("checkout", contenido[0]);
+app.get("/filtro/:item?", function(request, response) {
+  let contenido = null;
+
+  let info = request.params.item;
+  
+  let filtros = info.split("&");
+  
+  let query = {};
+
+  filtros.forEach(f => {
+    let i = f.split(":");
+    
+
+    if(i[0] == "marca"){
+      query.marca = i[1];
+    }
+
+    if(i[0] == "envio"){
+      query.envio = i[1];
+    }
+
+    if(i[0] == "etapa"){
+      query.etapa = i[1];
+    }
+  });
+
+  console.log(query)
+
+  
+  let coleccion = baseDatos.collection("productos");
+  
+  coleccion.find({}).toArray(function(err, items) {
+    test.equal(null, err);
+    contenido = items;
+    if (contenido != null) {
+      response.render("tienda", contenido[0]);
+    }
+  });
+
+
+
 });
 
-app.post("/envio", function(request, response) {
+app.get("/pedido", function(request, response) {
+  response.render("pedido", {});
+});
 
+app.post("/enviar", function(request, response) {
   let pedido = {
     correo: request.body.correo,
     fecha: new Date(),
@@ -121,9 +161,7 @@ app.post("/envio", function(request, response) {
   response.redirect("/");
 });
 
-app.get("/envioproductos", function(){
-
-});
+app.get("/envioproductos", function() {});
 
 app.get("/carrito", function(request, response) {
   let contenido = {};

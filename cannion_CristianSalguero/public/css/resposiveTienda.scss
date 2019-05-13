@@ -37,40 +37,39 @@
 
     #filtros{
 
-        .filtros{
-            width: 100%;
-        }
+    }
 
-        .filtro__navegacion{
-            display: flex;
-        }
+    form{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
 
-        .filtro__opcion{
-            width: 45%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    .filtros{
+        width: 100%;
+    }
 
-            & > input:checked~ div{
-                background: #FFB531;
+    .filtro__opcion{
+        width: 45%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-                img{
+        & > input:checked~ div{
+            background: #FFB531;
 
-                    filter: brightness(10);
-                }
+            img{
+
+                filter: brightness(10);
             }
-        }
-
-        form{
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
         }
     }
 
-    
-
     #menu {
+        display: flex;
+    }
+
+    .seleccionado{
         display: flex;
     }
     

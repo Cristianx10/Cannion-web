@@ -41,15 +41,21 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  #filtros .filtros {
+  form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .filtros {
     width: 100%;
   }
-  #filtros .filtro__navegacion {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  #filtros .filtro__opcion {
+  .filtro__opcion {
     width: 45%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -61,25 +67,19 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  #filtros .filtro__opcion > input:checked ~ div {
+  .filtro__opcion > input:checked ~ div {
     background: #FFB531;
   }
-  #filtros .filtro__opcion > input:checked ~ div img {
+  .filtro__opcion > input:checked ~ div img {
     -webkit-filter: brightness(10);
             filter: brightness(10);
   }
-  #filtros form {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-  }
   #menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .seleccionado {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
