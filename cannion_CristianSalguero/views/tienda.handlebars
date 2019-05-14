@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="cont-principal" style="background-image: url('./images/background-tienda.png');">
+    <div class="cont-principal" style="background-image: url('/images/background-tienda.png');">
 
         <header class="cabecera__prin">
             <div class="centrar">
@@ -47,10 +47,10 @@
                         </div>
                         <div id="filtros">
                             <div class="icono"><img src="/images/iconos/icon_filtro.svg" alt=""></div>
-                            
+
                         </div>
                         <div id="carrito">
-                        
+
                             <div class="carrito__icono icono"><img src="/images/iconos/icon-carrito.svg" alt=""></div>
                             <div class="carrito__navegacion"></div>
                         </div>
@@ -77,8 +77,13 @@
                             <h2>Relevancia</h2>
                         </div>
                         <form action="">
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="precio">
+
+                                {{#if query.Normal}}
+                                <input type="radio" checked name="categoria" value="Normal">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Normal">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_relevante.svg" alt="">
@@ -86,8 +91,12 @@
                                 </div>
                                 <p>Mas relevantes</p>
                             </label>
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="precio">
+                                {{#if query.Mayor}}
+                                <input type="radio" checked name="categoria" value="Mayor">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Mayor">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_caro.svg" alt="">
@@ -95,8 +104,12 @@
                                 </div>
                                 <p>Mayor precio</p>
                             </label>
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="precio">
+                                {{#if query.Menor}}
+                                <input type="radio" checked name="categoria" value="Menor">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Menor">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_barato.svg" alt="">
@@ -111,8 +124,12 @@
                             <h2>Etapa</h2>
                         </div>
                         <form action="">
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="etapa">
+                                {{#if query.Adulto}}
+                                <input type="radio" checked name="categoria" value="Adulto">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Adulto">
+                                {{/if}}
 
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
@@ -122,8 +139,12 @@
 
                                 <p>Adulto</p>
                             </label>
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="etapa">
+                                {{#if query.Cachorro}}
+                                <input type="radio" checked name="categoria" value="Cachorro">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Cachorro">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_perro_p.svg" alt="">
@@ -131,8 +152,12 @@
                                 </div>
                                 <p>Cachorro</p>
                             </label>
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="etapa">
+                                {{#if query.Senior}}
+                                <input type="radio" checked name="categoria" value="Senior">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Senior">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_perro_s.svg" alt="">
@@ -147,23 +172,35 @@
                             <h2>Marca</h2>
                         </div>
                         <form action="">
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="marca">
+                                {{#if query.Chunky}}
+                                <input type="radio" checked name="categoria" value="Chunky">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Chunky">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">C</div>
                                 </div>
-                                <p>Chucky</p>
-                                </label>
+                                <p>Chunky</p>
                             </label>
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            </label>
+                            <label class="filtro__opcion" id="marca">
+                                {{#if query.Dogchow}}
+                                <input type="radio" checked name="categoria" value="Dogchow">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Dogchow">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">D</div>
                                 </div>
                                 <p>Dog Chow</p>
                             </label>
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="marca">
+                                {{#if query.Dogourmet}}
+                                <input type="radio" checked name="categoria" value="Dogourmet">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Dogourmet">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">G</div>
                                 </div>
@@ -176,8 +213,12 @@
                             <h2>Envio</h2>
                         </div>
                         <form action="__titulo">
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="envio">
+                                {{#if query.Gratis}}
+                                <input type="radio" checked name="categoria" value="Gratis">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Gratis">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_gratis.svg" alt="">
@@ -186,15 +227,23 @@
                                 </div>
                                 <p>Gratis</p>
                             </label>
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="envio">
+                                {{#if query.Credito}}
+                                <input type="radio" checked name="categoria" value="Credito">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Credito">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">S</div>
                                 </div>
                                 <p>Servientrega</p>
                             </label>
-                            <label class="filtro__opcion">
-                                <input type="radio" name="categoria" id="">
+                            <label class="filtro__opcion" id="envio">
+                                {{#if query.Pagocontraentrega}}
+                                <input type="radio" checked name="categoria" value="Pagocontraentrega">
+                                {{else}}
+                                <input type="radio" name="categoria" value="Pagocontraentrega">
+                                {{/if}}
                                 <div class="filtro__opcion__icono">
                                     <div class="filtro__icono">
                                         <img src="/images/iconos/icon_contraentrega.svg" alt="">
@@ -268,12 +317,12 @@
 
         let articulos = document.querySelectorAll(".articulo");
         let agregar = [];
-/*
-        console.log(articulos)
-*/
-        articulos.forEach((articulo)=>{
-            let agrega = {selector:articulo.querySelector(".articulo__informacion__agregar"), origen:articulo};
-            agrega.selector.addEventListener("click", ()=>{
+        /*
+                console.log(articulos)
+        */
+        articulos.forEach((articulo) => {
+            let agrega = { selector: articulo.querySelector(".articulo__informacion__agregar"), origen: articulo };
+            agrega.selector.addEventListener("click", () => {
 
                 let nombre = agrega.origen.querySelector(".articulo__informacion__titulo");
                 let precio = agrega.origen.querySelector(".articulo__informacion__precio");
@@ -282,18 +331,142 @@
 
                 data.agregarProducto(
                     {
-                        nombre:nombre,
-                        precio:precio,
-                        imagen:imagen,
-                        informacion:informacion
+                        nombre: nombre,
+                        precio: precio,
+                        imagen: imagen,
+                        informacion: informacion
                     }
                 );
-                
+
             });
             agregar.push(agrega);
         });
 
-        
+        let filtros__check__precio = document.querySelectorAll(".filtros #precio");
+        let rutaPrecio = "";
+        let rutaEnvio = "";
+        let rutaMarca = "";
+        let rutaEtapa = "";
+        let vprecio = false;
+        let venvio = false;
+        let vmarca = false;
+        let vetapa = false;;
+
+        function actualizarPrecio(f) {
+            let intpu = f.querySelector("input");
+            if (intpu.checked) {
+                rutaPrecio = f.id + "=" + intpu.value + "&";
+            }
+        }
+
+        filtros__check__precio.forEach((f) => {
+            actualizarPrecio(f);
+            f.addEventListener("mouseup", () => {
+                let intpu = f.querySelector("input");
+                if (intpu.checked) {
+                    setTimeout(() => {
+                        intpu.checked = false;
+                    }, 5);
+                    rutaPrecio = "";
+                } else {
+                    rutaPrecio = f.id + "=" + intpu.value + "&";
+                }
+
+                actualizandoRuta();
+            });
+        });
+
+
+        let filtros__check__marca = document.querySelectorAll(".filtros #marca");
+
+
+        function actualizarMarca(f) {
+            let intpu = f.querySelector("input");
+            if (intpu.checked) {
+                rutaMarca = f.id + "=" + intpu.value + "&";
+            }
+
+        }
+
+        filtros__check__marca.forEach((f) => {
+            actualizarMarca(f);
+            f.addEventListener("mouseup", () => {
+                let intpu = f.querySelector("input");
+                if (intpu.checked) {
+                    setTimeout(() => {
+                        intpu.checked = false;
+                    }, 5);
+                    rutaMarca = "";
+                } else {
+                    rutaMarca = f.id + "=" + intpu.value + "&";
+                }
+                actualizandoRuta();
+            });
+        });
+
+
+
+        let filtros__check__etapa = document.querySelectorAll(".filtros #etapa");
+
+
+        function actualizarEtapa(f) {
+            let intpu = f.querySelector("input");
+            if (intpu.checked) {
+                rutaEtapa = f.id + "=" + intpu.value + "&";
+            }
+        }
+
+        filtros__check__etapa.forEach((f) => {
+            actualizarEtapa(f);
+            f.addEventListener("mouseup", () => {
+                let intpu = f.querySelector("input");
+                if (intpu.checked) {
+                    setTimeout(() => {
+                        intpu.checked = false;
+                    }, 5);
+                    rutaEtapa = "";
+                } else {
+                    rutaEtapa = f.id + "=" + intpu.value + "&";
+                }
+                actualizandoRuta();
+            });
+        });
+
+        let filtros__check__envio = document.querySelectorAll(".filtros #envio");
+
+
+        function actualizarEnvio(f) {
+            let intpu = f.querySelector("input");
+            if (intpu.checked && rutaEnvio == "") {
+                rutaEnvio = f.id + "=" + intpu.value + "&";
+            }
+
+        }
+
+        filtros__check__envio.forEach((f) => {
+            actualizarEnvio(f);
+            f.addEventListener("mouseup", () => {
+                let intpu = f.querySelector("input");
+                if (intpu.checked) {
+                    setTimeout(() => {
+                        intpu.checked = false;
+                    }, 5);
+                    rutaEnvio = "";
+                } else {
+                    rutaEnvio = f.id + "=" + intpu.value + "&";
+                }
+                actualizandoRuta();
+            });
+        });
+
+        function actualizandoRuta() {
+            let ruta = rutaEnvio + rutaEtapa + rutaMarca + rutaPrecio;
+            console.log(ruta)
+            location.href = ruta;
+        }
+        console.log(rutaEnvio + rutaEtapa + rutaMarca + rutaPrecio)
+
+
 
     </script>
 </body>

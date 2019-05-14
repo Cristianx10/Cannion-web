@@ -57,8 +57,7 @@ var contexto = {
   ]
 };
 
-app.get("/", function(request, response){
-
+app.get("/", function(request, response) {
   response.sendfile("/index.html");
 });
 
@@ -98,46 +97,80 @@ app.get("/producto/:item?", function(request, response) {
 });
 
 app.get("/filtro/:item?", function(request, response) {
-  let contenido = null;
+  let contenido = {};
 
   let info = request.params.item;
   
-  let filtros = info.split("&");
-  
   let query = {};
+  let opciones = {};
+  let temquery = {};
 
-  filtros.forEach(f => {
-    let i = f.split(":");
-    
+  if (info != null) {
+    let filtros = info.split("&");
+    filtros.forEach(f => {
+      let i = f.split("=");
 
-    if(i[0] == "marca"){
-      query.marca = i[1];
-    }
+      if (i[0] == "precio") {
+        temquery.precio = i[1];
 
-    if(i[0] == "envio"){
-      query.envio = i[1];
-    }
+        if (i[1] == "Menor") {
+          opciones = { costo: 1 };
+        } else if (i[1] == "Mayor") {
+          opciones = { costo: -1 };
+        }else if (i[1] == "Normal") {
+          opciones = { popularidad: -1 };
+        }
 
-    if(i[0] == "etapa"){
-      query.etapa = i[1];
-    }
-  });
+      } else if (i[0] == "marca") {
+        query.marca = i[1];
+      } else if (i[0] == "envio") {
+        query.envio = i[1];
+      } else if (i[0] == "etapa") {
+        query.etapa = i[1];
+      }
+    });
+  }
 
-  console.log(query)
-
-  
   let coleccion = baseDatos.collection("productos");
-  
-  coleccion.find({}).toArray(function(err, items) {
-    test.equal(null, err);
-    contenido = items;
-    if (contenido != null) {
-      response.render("tienda", contenido[0]);
-    }
-  });
 
+  coleccion
+    .find(query)
+    .sort(opciones)
+    .toArray(function(err, items) {
+      test.equal(null, err);
 
+      contenido.productos = items;
 
+      let precio = temquery.precio;
+      if (precio == null) {
+        precio = "precio";
+      }
+
+      let marca = query.marca;
+      if (marca == null) {
+        marca = "marca";
+      }
+
+      let envio = query.envio;
+      if (envio == null) {
+        envio = "envio";
+      }
+
+      let etapa = query.etapa;
+      if (etapa == null) {
+        etapa = "etapa";
+      }
+
+      if (info != null) {
+        contenido.query = JSON.parse(
+          `{"${marca}":true, "${envio}":true, "${etapa}":true, "${precio}":true}`
+        );
+      }
+
+      if (contenido != null) {
+        response.render("tienda", contenido);
+      }
+    });
 });
 
 app.get("/pedido", function(request, response) {
