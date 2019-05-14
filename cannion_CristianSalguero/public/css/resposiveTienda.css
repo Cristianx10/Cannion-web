@@ -41,6 +41,11 @@
         -ms-flex-align: center;
             align-items: center;
   }
+  #filtros, #carrito {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   form {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

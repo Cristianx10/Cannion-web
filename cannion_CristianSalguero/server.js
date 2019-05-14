@@ -60,7 +60,7 @@ var contexto = {
 app.get("/", function(request, response) {
   response.sendfile("/index.html");
 });
-
+/*
 app.get("/tienda", function(request, response) {
   let contenido = {};
   let query = {};
@@ -74,7 +74,7 @@ app.get("/tienda", function(request, response) {
       response.render("tienda", contenido);
     }
   });
-});
+});*/
 
 app.get("/producto/:item?", function(request, response) {
   let contenido = null;
@@ -96,11 +96,11 @@ app.get("/producto/:item?", function(request, response) {
   });
 });
 
-app.get("/filtro/:item?", function(request, response) {
+app.get("/tienda/:item?", function(request, response) {
   let contenido = {};
 
   let info = request.params.item;
-  
+
   let query = {};
   let opciones = {};
   let temquery = {};

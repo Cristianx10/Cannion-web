@@ -58,7 +58,7 @@ li {
     flex-direction: row;
 }
 
-.cont__filtros{
+.cont__filtros {
     width: 30%;
 }
 
@@ -66,7 +66,7 @@ li {
     display: flex;
     flex-direction: column;
     background: #f6f6f6;
-   
+
 
 
     &__titulo {
@@ -90,8 +90,8 @@ li {
         margin: 10px 0;
     }
 
-   
-/*
+
+    /*
 
     &__relevancia {}
 
@@ -105,7 +105,7 @@ li {
 
 
 
-.filtro__icono{
+.filtro__icono {
     width: 100px;
     height: 100px;
     display: none;
@@ -114,17 +114,17 @@ li {
     font-weight: bold;
     /* line-height: 94px; */
     /* text-align: center; */
-  
+
     justify-content: center;
     align-items: center;
 
-    img{
+    img {
         width: 100%;
         height: 100%;
     }
 
-    
-    
+
+
 }
 
 //.list-productos {}
@@ -176,6 +176,7 @@ form {
     width: 200px;
     height: 300px;
     padding: 15px;
+    overflow: hidden;
     transition: all .5s ease;
 
     &:hover {
@@ -229,14 +230,19 @@ form {
         &__titulo {
             margin-top: 3px;
             text-transform: lowercase;
+            white-space: pre-wrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 70px;
 
+        
             &:first-letter {
                 text-transform: uppercase;
             }
         }
 
 
-      //  &__descripcion {}
+        //  &__descripcion {}
 
         &__precio {
             border-bottom: 1px solid white;
@@ -292,6 +298,7 @@ form {
 
 #menu {
     display: none;
+
     &>.seleccionado {
         display: flex;
     }
@@ -303,16 +310,16 @@ form {
     }
 }
 
-#menu{ 
+#menu {
     flex-direction: column;
     z-index: 100;
 
-    & .menu__icono{
+    & .menu__icono {
         margin: 30px 10px;
     }
 }
 
-.menu__navegacion{
+.menu__navegacion {
     display: none;
     background: #397BB5;
     height: 100%;
@@ -320,31 +327,34 @@ form {
 
 }
 
-#filtros{
-    z-index: 100;
+#filtros,
+#carrito {
+    display: none;
 }
 
-.filtro__navegacion{
+
+.filtro__navegacion {
     display: none;
     width: 100%;
-    height: 100%;;
+    height: 100%;
+    ;
     left: 0;
     top: 95px;
     background: rgb(255, 181, 49);
 }
 
-.seleccionado{
-    .navegacion__prin{
+.seleccionado {
+    .navegacion__prin {
         width: 100%;
 
-        li{
+        li {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 50px;
             background: #31AD6B;
 
-            &:hover{
+            &:hover {
                 background: #87C5D2;
             }
         }
@@ -387,7 +397,6 @@ form {
     background: #FFFFFF;
 }
 
-.filtro__navegacion{
+.filtro__navegacion {
     display: none;
 }
-
