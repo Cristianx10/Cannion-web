@@ -397,6 +397,49 @@ form {
     background: #FFFFFF;
 }
 
+.rojo {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 1em;
+    width: 150px;
+    background: red;
+    color: #FFFFFF;
+}
+
 .filtro__navegacion {
     display: none;
+}
+
+.p{
+    position: relative;
+    display: flex;
+    max-height: 200px;
+    border-radius: 50px;
+    border: 3px solid #397BB5;
+
+    &__informacion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+    }
+
+    &__contenido{
+        overflow: hidden;
+        width: 80%;
+    }
+
+    &__imagen{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+
+        img{
+            height: 100%;
+            max-height: 200px;
+        }
+    }
+
 }

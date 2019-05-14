@@ -22,7 +22,7 @@
                         <nav class="navegacion__prin">
                             <ul>
                                 <li class="navegacion__prin__item">
-                                    <a id="nav__inicio" href="#">Inicio</a>
+                                    <a id="nav__inicio" href="/">Inicio</a>
                                 </li>
                                 <li class="navegacion__prin__item">
                                     <a id="nav__quien" href="#">¿Quienes somos?</a>
@@ -31,7 +31,7 @@
                                     <a id="nav__porque" href="#">¿Porque adoptar?</a>
                                 </li>
                                 <li class="navegacion__prin__item">
-                                    <a id="nav__tienda" href="#">Tienda</a>
+                                    <a id="nav__tienda" href="/tienda">Tienda</a>
                                 </li>
                                 <li class="navegacion__prin__item">
                                     <a id="nav__contacto" href="#">Contacto</a>
@@ -45,53 +45,9 @@
         </div>
     </header>
     <h1>Tienda</h1>
-    <div class="con-producto">
 
-        <div class="con-producto__imagen">
-            <img src="{{imagen}}" alt="">
-        </div>
-
-        <div class="con-producto__informacion">
-            <h1>{{nombre}}</h1>
-            <h2>{{costo}}</h2>
-            <div class="informacion__llegada">
-                <div class="informacion__llegada__icono icono">
-                    <img src="/images/iconos/icon-calendario.svg" alt="">
-                </div>
-                <div class="informacion__llegada__texto">
-                    <p>Llega cerca al 21 Abril</p>
-                </div>
-            </div>
-            <div class="informacion__envio">
-                <div class="informacion__envio__icono icono">
-                    <img src="/images/iconos/icon-envio.svg" alt="">
-                </div>
-                <div class="informacion__envio__texto">
-                    <p>{{envio}}</p>
-                </div>
-            </div>
-            <div class="informacion__compra">
-                <div class="informacion__compra__comprar">
-                    <button class="boton verde">Comprar</button>
-                </div>
-                <div class="informacion__compra__agregar">
-                    <button class="boton gris">Agregar</button>
-                </div>
-            </div>
-            <div class="informacion__social">
-                <div class="informacion__social__valorar">
-                    <div class="informacion__social__valorar__icono icono">
-                        <img src="/images/iconos/icon-like.svg" alt="">
-                    </div>
-                    <button class="informacion__social__valorar__boton">Me gusta</button>
-                </div>
-            </div>
-            <div class="informacion__descripcion">
-                <div class="informacion__descripcion__texto">
-                    <p>{{informacion}}</p>
-                </div>
-            </div>
-        </div>
+    <div class="listaCarrito">
+        <h1>No hay productos disponibles</h1>
     </div>
 
 
@@ -116,11 +72,69 @@
             <h2 class="centrar">Todos los derechas reservador</h2>
         </div>
     </footer>
+<!--
+    <div>
+        <div class="p__imagen">
+            <img src="" alt="">
+        </div>
+        <div class="p__informacion">
+            <h2></h2>
+            <h3></h3>
+        </div>
+    </div>-->
 
     <script src="/js/almacen.js"></script>
+    <script src="/js/numeros.js"></script>
     <script>
         
+        let data = new Almacen("tienda");
+        
+        let listaProductos = document.querySelector(".listaCarrito");
+        let productos = data.getProductos();
+        
+        productos.forEach((p, index)=>{
+            if(index == 0){
+                listaProductos.innerHTML = "";
+            }
+            let item = document.createElement("li");
+            let eliminar = document.createElement("button");
+            let item__car = {
+                item:item,
+                eliminar:eliminar
+            }
+            eliminar.innerHTML = "Eliminar";
+            eliminar.className = "p__eliminar articulo__informacion__agregar rojo";
 
+          
+            item.innerHTML = `
+            <div id="${p.id}" class="p">
+                <div class="p__imagen">
+                    <img src="${p.valor.imagen}" alt="">
+                </div>
+                <div class="p__informacion">
+                    <div class="p__contenido">
+                        <h2>${p.valor.nombre}</h2>
+                        <h3>${p.valor.precio}</h3>
+                        <p>${p.valor.informacion}</p>
+                    </div>
+                    <div class="p__eliminar">
+
+                    </div>  
+                </div>
+            </div>
+            `;
+            let zona__boton = item.querySelector(".p__eliminar");
+            zona__boton.append(eliminar);
+
+            item__car.eliminar.addEventListener("click", ()=>{
+                data.removerProducto(p.id);
+                listaProductos.removeChild(item__car.item);
+            });
+
+
+            listaProductos.append(item);
+        });
+      
 
     </script>
 

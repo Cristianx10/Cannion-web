@@ -11,10 +11,10 @@ function apaginaCargada(){
         let agrega = { selector: articulo.querySelector(".articulo__informacion__agregar"), origen: articulo };
         agrega.selector.addEventListener("click", () => {
 
-            let nombre = agrega.origen.querySelector(".articulo__informacion__titulo");
-            let precio = agrega.origen.querySelector(".articulo__informacion__precio");
-            let imagen = agrega.origen.querySelector(".articulo__imagen__imagen > img");
-            let informacion = agrega.origen.querySelector(".articulo__informacion__descripcion");
+            let nombre = agrega.origen.querySelector(".articulo__informacion__titulo").innerHTML;
+            let precio = parseInt((agrega.origen.querySelector(".articulo__informacion__precio").innerHTML).replace("$", "").replace(".", ""));
+            let imagen = agrega.origen.querySelector(".articulo__imagen__imagen > img").src;
+            let informacion = agrega.origen.querySelector(".articulo__informacion__descripcion").innerHTML;
 
             data.agregarProducto(
                 {
@@ -153,6 +153,16 @@ function apaginaCargada(){
         location.href = "/tienda" + ruta;
         
     }
+
+/*
+    console.log(data.getValor());
+    console.log(data.getNumero());
+*/
+
+    let numCarrito = document.querySelector(".carrito__numero");
+    numCarrito.append(data.getNumero());
+    numCarrito.append(data.getValor());
+    
    
 }
 

@@ -70,7 +70,13 @@
                 <div class="filtros">
                     <header>
                         <h2>Tienda</h2>
-                        <button>Carrito</button>
+                        <a href="/carrito">
+                            <div class="carrito">
+                                <div class="carrito__numero"></div>
+                                <div class="icono"><img src="/images/iconos/icon-carrito.svg" alt=""></div>
+                            </div>
+                        </a>
+
                     </header>
                     <div class="filtro filtro__pupularidad">
                         <div class="filtro__titulo">
@@ -259,7 +265,7 @@
             <div class="list-productos">
                 <h2>Contenido Tienda</h2>
                 <div class="productos__lista">
-
+                    {{#if productos.[0]}}
                     {{#each productos}}
                     <div class="articulo">
                         <div class="articulo__imagen">
@@ -277,6 +283,10 @@
                         </div>
                     </div>
                     {{/each}}
+                    {{else}}
+                    <h1>No se encontraron productos con estos filtros</h1>
+                    {{/if}}
+
 
                 </div>
 
@@ -312,6 +322,11 @@
     <script src="/js/tienda.js"></script>
     <script src="/js/almacen.js"></script>
     <script src="/js/atienda.js"></script>
+    <script src="/js/numeros.js"></script>
+
+    <script>
+
+    </script>
 </body>
 
 </html>
