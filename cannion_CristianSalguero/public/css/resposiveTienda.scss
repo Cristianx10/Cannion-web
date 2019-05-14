@@ -1,29 +1,29 @@
 //Celular Veritical
-@media (max-width:320px) {
-
-}
+@media (max-width:320px) {}
 
 //Celular Horizontal
 @media screen and (max-width: 480px) {
-    .cabecera__prin__cont__cabecera{
+    .cabecera__prin__cont__cabecera {
         flex-direction: row;
         background: #FFB531;
     }
-    .filtro__icono{
+
+    .filtro__icono {
         display: flex;
         width: 60px;
         height: 60px;
-        img{
+
+        img {
             width: 60px;
-        height: 60px;
+            height: 60px;
         }
     }
 
-    .filtro__opcion{
+    .filtro__opcion {
         display: flex;
         flex-direction: column;
 
-        &__icono{
+        &__icono {
             display: flex;
             width: 100px;
             height: 100px;
@@ -32,33 +32,34 @@
             justify-content: center;
             align-items: center;
         }
-        
+
     }
 
-    #filtros,#carrito{
+    #filtros,
+    #carrito {
         display: flex;
     }
 
-    form{
+    form {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
 
-    .filtros{
+    .filtros {
         width: 100%;
     }
 
-    .filtro__opcion{
+    .filtro__opcion {
         width: 45%;
         display: flex;
         justify-content: center;
         align-items: center;
 
-        & > input:checked~ div{
+        &>input:checked~div {
             background: #FFB531;
 
-            img{
+            img {
 
                 filter: brightness(10);
             }
@@ -69,28 +70,64 @@
         display: flex;
     }
 
-    .seleccionado{
+    .seleccionado {
         display: flex;
     }
-    
+
+    .p {
+        &__informacion {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+        }
+
+        &__contenido {
+            h2{
+                font-size: 1em;
+            }
+            p{
+                display: none;
+            }
+        }
+
+        &__imagen {
+            width: 30%;
+        }
+    }
+
 }
 
 //Tableta vertical
-@media screen and (max-width: 768px) and (min-width: 481px){
+@media screen and (max-width: 768px) and (min-width: 481px) {
 
-    .cabecera__prin__cont__cabecera{
-        flex-direction: column; 
+    .cabecera__prin__cont__cabecera {
+        flex-direction: column;
+    }
+
+
+     .p {
+        &__informacion {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__contenido {
+            h2{
+                font-size: 1.5em;
+            }
+            p{
+                font-size: .9em;
+            }
+        }
+
+        &__imagen {}
     }
 
 }
 
 //Tableta Horizontal
-@media (max-width:1024px) {
-
-}
+@media (max-width:1024px) {}
 
 
 //Escritorio
-@media (max-width:1280px) {
-
-}
+@media (max-width:1280px) {}

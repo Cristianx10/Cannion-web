@@ -41,7 +41,8 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  #filtros, #carrito {
+  #filtros,
+  #carrito {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -89,6 +90,25 @@
     display: -ms-flexbox;
     display: flex;
   }
+  .p__informacion {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 70%;
+  }
+  .p__contenido h2 {
+    font-size: 1em;
+  }
+  .p__contenido p {
+    display: none;
+  }
+  .p__imagen {
+    width: 30%;
+  }
 }
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
@@ -97,6 +117,21 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .p__informacion {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .p__contenido h2 {
+    font-size: 1.5em;
+  }
+  .p__contenido p {
+    font-size: .9em;
   }
 }
 /*# sourceMappingURL=resposiveTienda.css.map */

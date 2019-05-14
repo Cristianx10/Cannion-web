@@ -22,19 +22,19 @@
                         <nav class="navegacion__prin">
                             <ul>
                                 <li class="navegacion__prin__item">
-                                    <a id="nav__inicio" href="#">Inicio</a>
+                                    <a id="nav__inicio" href="/">Inicio</a>
                                 </li>
                                 <li class="navegacion__prin__item">
-                                    <a id="nav__quien" href="#">¿Quienes somos?</a>
+                                    <a id="nav__quien" href="/">¿Quienes somos?</a>
                                 </li>
                                 <li class="navegacion__prin__item">
-                                    <a id="nav__porque" href="#">¿Porque adoptar?</a>
+                                    <a id="nav__porque" href="/">¿Porque adoptar?</a>
                                 </li>
                                 <li class="navegacion__prin__item">
-                                    <a id="nav__tienda" href="#">Tienda</a>
+                                    <a id="nav__tienda" href="/tienda">Tienda</a>
                                 </li>
                                 <li class="navegacion__prin__item">
-                                    <a id="nav__contacto" href="#">Contacto</a>
+                                    <a id="nav__contacto" href="/">Contacto</a>
                                 </li>
                             </ul>
                         </nav>
@@ -47,25 +47,32 @@
 
 
 
-<form action="/enviar" method="POST">
+    <form action="/enviar" method="POST">
 
-<label for="">Nombre</label>
-<input type="text" value="" placeholder="Ingresa tu nombre">
+        <label for="">Nombre</label>
+        <input name="nombre" type="text" value="" placeholder="Ingresa tu nombre">
 
+        <label for="">Correo Electronico</label>
+        <input name="correo" type="text" value="" placeholder="Ingrese su Email">
 
+        <label for="">Telefono</label>
+        <input name="telefono" type="text" value="" placeholder="Ingresa tu telefono">
 
-<label for="">Correo Electronico</label>
-<input type="text" value="" placeholder="Ingrese su Email">
-
-<label for="">Telefono</label>
-<input type="text" value="" placeholder="Ingresa tu telefono">
-
-<input type="hidden" value="">
+        <input name="" type="hidden" value="" id="arregloProductos">
 
 
-</form>
+    </form>
 
 
+    <script src="/js/almacen.js"></script>
+    <script>
+
+        let carrito = new Almacen("tienda");
+        let intput__enviar = document.querySelector("#arregloProductos");
+        intput__enviar.value = JSON.stringify(carrito.getProductos());
+
+
+    </script>
 
 </body>
 

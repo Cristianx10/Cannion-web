@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Producto</title>
-    <link rel="stylesheet" href="/css/principal.css">
+
     <link rel="stylesheet" href="/css/tienda.css">
+    <link rel="stylesheet" href="/css/resposiveTienda.css">
 </head>
 
 <body>
@@ -15,6 +16,9 @@
         <div class="centrar">
             <article class="cabecera__prin__cont">
                 <section class="cabecera__prin__cont__cabecera">
+                    <div id="menu">
+                        <div class="menu__icono"><img src="/images/iconos/icon-menu.svg" alt=""></div>
+                    </div>
                     <div class="cabecera__prin__cont__cabecera__logo">
                         <img src="/images/Logo.png" alt="logo" />
                     </div>
@@ -25,25 +29,42 @@
                                     <a id="nav__inicio" href="/">Inicio</a>
                                 </li>
                                 <li class="navegacion__prin__item">
-                                    <a id="nav__quien" href="#">¿Quienes somos?</a>
+                                    <a id="nav__quien" href="/">¿Quienes somos?</a>
                                 </li>
                                 <li class="navegacion__prin__item">
-                                    <a id="nav__porque" href="#">¿Porque adoptar?</a>
+                                    <a id="nav__porque" href="/">¿Porque adoptar?</a>
                                 </li>
                                 <li class="navegacion__prin__item">
                                     <a id="nav__tienda" href="/tienda">Tienda</a>
                                 </li>
                                 <li class="navegacion__prin__item">
-                                    <a id="nav__contacto" href="#">Contacto</a>
+                                    <a id="nav__contacto" href="/">Contacto</a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
+                    <div id="filtros">
+                        <div class="icono"><img src="/images/iconos/icon_filtro.svg" alt=""></div>
+
+                    </div>
+                    <a href="/carrito">
+                        <div id="carrito">
+                            <div class="carrito__icono icono"><img src="/images/iconos/icon-carrito.svg" alt="">
+                            </div>
+                            <div class="carrito__navegacion"></div>
+                        </div>
+                    </a>
+
                 </section>
+                <section class="zona__navegacion">
+                    <div class="menu__navegacion"></div>
+                    <div class="filtro__navegacion"></div>
+                </section>
+
             </article>
-            <div class="boton__carrito"><button>Carrito</button></div>
         </div>
     </header>
+
     <h1>Tienda</h1>
 
     <div class="listaCarrito">
@@ -51,6 +72,23 @@
     </div>
 
 
+    <div class="carrito__numero carrito__total">
+        <div>
+            <h1>Numero de Articulos: </h1>
+            <h1 id="numero"></h1>
+        </div>
+        <div>
+            <h1>Total: </h1>
+            <h1 id="total"></h1>
+        </div>
+    </div>
+
+    <div>
+        <a href="/pedido">
+            <button>Pagar</button>
+        </a>
+
+    </div>
     <footer>
         <div class="centrar">
             <article class="pie-pagina">
@@ -72,7 +110,7 @@
             <h2 class="centrar">Todos los derechas reservador</h2>
         </div>
     </footer>
-<!--
+    <!--
     <div>
         <div class="p__imagen">
             <img src="" alt="">
@@ -83,60 +121,11 @@
         </div>
     </div>-->
 
+    <script src="/js/tienda.js"></script>
     <script src="/js/almacen.js"></script>
+
+    <script src="/js/carrito.js"></script>
     <script src="/js/numeros.js"></script>
-    <script>
-        
-        let data = new Almacen("tienda");
-        
-        let listaProductos = document.querySelector(".listaCarrito");
-        let productos = data.getProductos();
-        
-        productos.forEach((p, index)=>{
-            if(index == 0){
-                listaProductos.innerHTML = "";
-            }
-            let item = document.createElement("li");
-            let eliminar = document.createElement("button");
-            let item__car = {
-                item:item,
-                eliminar:eliminar
-            }
-            eliminar.innerHTML = "Eliminar";
-            eliminar.className = "p__eliminar articulo__informacion__agregar rojo";
-
-          
-            item.innerHTML = `
-            <div id="${p.id}" class="p">
-                <div class="p__imagen">
-                    <img src="${p.valor.imagen}" alt="">
-                </div>
-                <div class="p__informacion">
-                    <div class="p__contenido">
-                        <h2>${p.valor.nombre}</h2>
-                        <h3>${p.valor.precio}</h3>
-                        <p>${p.valor.informacion}</p>
-                    </div>
-                    <div class="p__eliminar">
-
-                    </div>  
-                </div>
-            </div>
-            `;
-            let zona__boton = item.querySelector(".p__eliminar");
-            zona__boton.append(eliminar);
-
-            item__car.eliminar.addEventListener("click", ()=>{
-                data.removerProducto(p.id);
-                listaProductos.removeChild(item__car.item);
-            });
-
-
-            listaProductos.append(item);
-        });
-      
-
-    </script>
 
 </body>
 
