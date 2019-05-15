@@ -17,6 +17,8 @@ const url = "mongodb://localhost:27017";
 const dbName = "tienda";
 var baseDatos;
 
+const assert = require('assert');
+
 // Connect using MongoClient
 MongoClient.connect(url, function(err, client) {
   baseDatos = client.db(dbName);
@@ -178,8 +180,17 @@ app.get("/pedido", function(request, response) {
 });
 
 app.post("/enviar", function(request, response) {
+
+  let data = request.body;
+  console.log(data);
   let pedido = {
-    correo: request.body.correo,
+    nombre: data.nombre,
+    correo: data.correo,
+    direccion: data.direccion,
+    telefono: data.telefono,
+    pago: data.pago,
+    tarjeta: data.tarjeta,
+    code: data.tarjeta__codigo,
     fecha: new Date(),
     estado: "En espera"
   };
@@ -191,12 +202,8 @@ app.post("/enviar", function(request, response) {
     console.log("pedido guardado");
   });
 
-  let contendio = {
-    titulo: "Página principal",
-    mensaje: "pedido guardado"
-  };
-
   response.redirect("/");
+
 });
 
 app.get("/envioproductos", function() {});

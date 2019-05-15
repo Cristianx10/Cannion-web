@@ -234,6 +234,7 @@ form {
             overflow: hidden;
             text-overflow: ellipsis;
             height: 70px;
+         
 
         
             &:first-letter {
@@ -411,9 +412,22 @@ form {
     display: none;
 }
 
+.listaCarrito{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    li{
+        width: 45%;
+        margin: 10px;
+    }
+}
+
 .p{
     position: relative;
     display: flex;
+   
+ 
     max-height: 200px;
     border-radius: 50px;
     border: 3px solid #397BB5;
@@ -468,3 +482,108 @@ form {
     cursor: pointer;
     color: black;
 }
+
+.con-producto{
+    .articulo__informacion__titulo{
+        font-size: 2em;
+    }
+
+}
+
+.navegacion__pedido{
+
+    margin: 0;
+
+    &__lista{
+        display: flex;
+        width: 100%;
+        height: 20%;
+    }
+
+    li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 33.33%;
+        background: #397BB5;
+    }
+}
+
+.pantalla{
+    &__formulario{
+        height: 80%;
+    }
+
+    &__pedido{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        height: 100%;
+        min-height: 400px;
+        margin: 0;
+    }
+
+    &__centrado{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input{
+            margin-right: 30px;
+        }
+    }
+}
+
+.zona_navegacion{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.lista__p label{
+    width: 400px;
+    h2{
+        text-align: left;
+    }
+
+    input{
+        height: 40px;
+        width: 100%;
+    }
+  
+}
+
+.carrito__icono{
+    position: relative;
+    p{
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        background: red;
+        border-radius: 50px;
+        width: 25px;
+        height: 25px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+    }
+}  
+
+
+.bloque__carrito{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    p{
+        color: white;
+        font-size: 1.5em;
+    }
+}
+

@@ -22,6 +22,7 @@ var Almacen = /** @class */ (function () {
     function Almacen(id) {
         this.id = id;
         this.contador = document.createElement("p");
+        this.contador2 = document.createElement("p");
         this.precio = document.createElement("p");
         var data = JSON.parse(localStorage.getItem(id));
         if (data != null) {
@@ -35,12 +36,14 @@ var Almacen = /** @class */ (function () {
             this.precio.innerText = "$0";
         }
         this.contador.innerText = this.productos.length + "";
+        this.contador2.innerHTML = this.contador.innerText;
     }
     Almacen.prototype.agregarProducto = function (valores) {
         var temp = { id: "producto#" + (this.productos.length + 1), valor: valores };
         this.productos.push(temp);
         localStorage.setItem(this.id, JSON.stringify(this));
         this.contador.innerText = this.productos.length + "";
+        this.contador2.innerHTML = this.contador.innerText;
         this.calcularPrecio();
     };
     Almacen.prototype.calcularPrecio = function () {
@@ -65,6 +68,7 @@ var Almacen = /** @class */ (function () {
         console.log(this.productos);
         localStorage.setItem(this.id, JSON.stringify(this));
         this.contador.innerText = this.productos.length + "";
+        this.contador2.innerHTML = this.contador.innerText;
         this.calcularPrecio();
     };
     Almacen.prototype.vaciarCarrito = function (tipo) {
@@ -98,6 +102,11 @@ var Almacen = /** @class */ (function () {
     Almacen.prototype.getNumero = function () {
         return this.contador;
     };
+
+    Almacen.prototype.getNumeroB = function () {
+        return this.contador2;
+    };
+
     Almacen.prototype.getValor = function () {
         return this.precio;
     };

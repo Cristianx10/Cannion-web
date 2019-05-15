@@ -1,4 +1,4 @@
-
+function paginaCargadaNuemro(){
     var formatNumber = {
         separador: ".", // separador para los miles
         sepDecimal: ',', // separador para los decimales
@@ -36,3 +36,6 @@
         
         n.innerHTML = "$" + formatNumber.new(num);
     });
+}
+    
+window.addEventListener("load", paginaCargadaNuemro);

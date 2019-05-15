@@ -20,8 +20,10 @@ function paginaCargadaCarrito() {
     item.innerHTML = `
         <div id="${p.id}" class="p">
             <div class="p__imagen">
+            <a href="/producto/${p.valor.nombre}">
                 <img src="${p.valor.imagen}" alt="">
                 <h3 class="numero">${p.valor.precio}</h3>
+                </a>
             </div>
             <div class="p__informacion">
                 <div class="p__contenido">
@@ -52,6 +54,10 @@ function paginaCargadaCarrito() {
 
   numCarrito.append(data.getValor());
   totalCarrito.append(data.getNumero());
+
+  let numCarritoB = document.querySelector(".carrito__icono");
+  numCarritoB.append(data.getNumeroB());
+  
 }
 
 window.addEventListener("load", paginaCargadaCarrito);

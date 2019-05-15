@@ -157,10 +157,13 @@ function apaginaCargada() {
     console.log(data.getNumero());
 */
 
-  let numCarrito = document.querySelector(".carrito__numero");
+let numCarrito = document.querySelector(".carrito__numero");
+let numCarritoB = document.querySelector(".carrito__icono");
+let numArituclos = document.querySelector(".carrito_num_articulos");
 
+  numCarritoB.append(data.getNumeroB());
   numCarrito.append(data.getNumero());
-  numCarrito.append(data.getValor());
+  numArituclos.append(data.getValor());
 }
 
 window.addEventListener("load", apaginaCargada);

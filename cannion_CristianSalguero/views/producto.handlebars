@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    
     <header class="cabecera__prin" style="background-image: url('/images/background-tienda.png');">
         <div class="centrar">
             <article class="cabecera__prin__cont">
@@ -48,7 +49,8 @@
                     </div>
                     <a href="/carrito">
                         <div id="carrito">
-                            <div class="carrito__icono icono"><img src="/images/iconos/icon-carrito.svg" alt="">
+                            <div class="carrito__icono icono">
+                                <img src="/images/iconos/icon-carrito.svg" alt="">
                             </div>
                             <div class="carrito__navegacion"></div>
                         </div>
@@ -64,16 +66,17 @@
         </div>
     </header>
 
+
     <h1>Tienda</h1>
     <div class="con-producto">
 
-        <div class="con-producto__imagen">
+        <div class="con-producto__imagen articulo__informacion__imagen">
             <img src="{{imagen}}" alt="">
         </div>
 
         <div class="con-producto__informacion">
-            <h1>{{nombre}}</h1>
-            <h2 class="numero">{{costo}}</h2>
+            <h1 class="articulo__informacion__titulo">{{nombre}}</h1>
+            <h2 class="numero articulo__informacion__precio">{{costo}}</h2>
             <div class="informacion__llegada">
                 <div class="informacion__llegada__icono icono">
                     <img src="/images/iconos/icon-calendario.svg" alt="">
@@ -92,10 +95,10 @@
             </div>
             <div class="informacion__compra">
                 <div class="informacion__compra__comprar">
-                    <button class="boton verde">Comprar</button>
+                    <button id="btn_comprar" class="boton verde">Comprar</button>
                 </div>
                 <div class="informacion__compra__agregar">
-                    <button class="boton gris">Agregar</button>
+                    <button class="boton gris informacion__agregar">Agregar</button>
                 </div>
             </div>
             <div class="informacion__social">
@@ -108,7 +111,7 @@
             </div>
             <div class="informacion__descripcion">
                 <div class="informacion__descripcion__texto">
-                    <p>{{informacion}}</p>
+                    <p class="articulo__informacion__descripcion">{{informacion}}</p>
                 </div>
             </div>
         </div>
@@ -137,7 +140,9 @@
         </div>
     </footer>
 
+    <script src="/js/almacen.js"></script>
     <script src="/js/tienda.js"></script>
+    <script src="/js/btienda.js"></script>
     <script src="/js/numeros.js"></script>
 </body>
 

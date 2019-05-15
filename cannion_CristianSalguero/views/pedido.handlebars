@@ -11,10 +11,14 @@
 </head>
 
 <body>
+    
     <header class="cabecera__prin" style="background-image: url('/images/background-tienda.png');">
         <div class="centrar">
             <article class="cabecera__prin__cont">
                 <section class="cabecera__prin__cont__cabecera">
+                    <div id="menu">
+                        <div class="menu__icono"><img src="/images/iconos/icon-menu.svg" alt=""></div>
+                    </div>
                     <div class="cabecera__prin__cont__cabecera__logo">
                         <img src="/images/Logo.png" alt="logo" />
                     </div>
@@ -39,40 +43,211 @@
                             </ul>
                         </nav>
                     </div>
+                    <div id="filtros">
+                        <div class="icono"><img src="/images/iconos/icon_filtro.svg" alt=""></div>
+
+                    </div>
+                    <a href="/carrito">
+                        <div id="carrito">
+                            <div class="carrito__icono icono">
+                                <img src="/images/iconos/icon-carrito.svg" alt="">
+                            </div>
+                            <div class="carrito__navegacion"></div>
+                        </div>
+                    </a>
+
                 </section>
+                <section class="zona__navegacion">
+                    <div class="menu__navegacion"></div>
+                    <div class="filtro__navegacion"></div>
+                </section>
+
             </article>
-            <div class="boton__carrito"><button>Carrito</button></div>
         </div>
     </header>
 
 
-
-    <form action="/enviar" method="POST">
-
-        <label for="">Nombre</label>
-        <input name="nombre" type="text" value="" placeholder="Ingresa tu nombre">
-
-        <label for="">Correo Electronico</label>
-        <input name="correo" type="text" value="" placeholder="Ingrese su Email">
-
-        <label for="">Telefono</label>
-        <input name="telefono" type="text" value="" placeholder="Ingresa tu telefono">
-
-        <input name="" type="hidden" value="" id="arregloProductos">
+    <div class="pantalla">
 
 
-    </form>
+        <div class="navegacion__pedido">
+            <ul class="navegacion__pedido__lista">
+                <li><h2>Informacion Personal</h2><div class="icono"><img src="/images/iconos/icon-usuario.svg" alt=""></div></li>
+                <li><h2>Informacion Personal</h2><div class="icono"><img src="/images/iconos/icon-targeta.svg" alt=""></div></li>
+                <li><h2>Informacion Personal</h2><div class="icono"><img src="/images/iconos/icon-hecho.svg" alt=""></div></li>
+            </ul>
+        </div>
+
+
+        <form id="formulario__pedido" action="/enviar" method="POST" class="pantalla__formulario">
+
+            <div class="pantalla__pedido lista__p">
+                <label>
+                    <h2>Nombre:</h2>
+                    <input name="nombre" type="text" value="" placeholder="Ingresa tu nombre">
+                </label>
+
+                <label>
+                    <h2>Correo Electronico:</h2>
+                    <input name="correo" type="email" value="" placeholder="Ingrese su Email">
+                </label>
+
+                <label>
+                    <h2>Direccion:</h2>
+                    <input name="direccion" type="text" value="" placeholder="Ingrese su direccion">
+                </label>
+
+                <label>
+                    <h2>Telefono</h2>
+                    <input name="telefono" type="text" value="" placeholder="Ingresa tu telefono">
+                </label>
+            </div>
+
+
+            <div class="pantalla__pedido lista__p">
+
+                <label>
+                    <h2>Tarjeta Credito</h2>
+                    <div class="pantalla__centrado">
+                        <input name="pago" type="radio" value="Tarjeta" placeholder="Ingresa tu telefono">
+                        <img src="/images/iconos/tarjeta.png" alt="">
+                    </div>
+                </label>
+
+                <label>
+                    <h2>Numero:</h2>
+                    <input name="tarjeta" type="number" value="" placeholder="Ingrese su tarjeta">
+                </label>
+                <label>
+                    <h2>Codigo:</h2>
+                    <input name="tarjeta__codigo" type="number" placeholder="Ingresa tu telefono">
+                </label>
+
+                <label>
+                    <div class="pantalla__centrado">
+                        <input name="pago" type="radio" value="Contraentrega" placeholder="Ingresa tu telefono">
+                        <h2>Contraentrega</h2>
+                    </div>
+
+                </label>
+            </div>
+
+            <div class="pantalla__pedido">
+
+                <img src="/images/iconos/verificado.png" alt="">
+            </div>
+
+            <input name="" type="hidden" value="" id="arregloProductos">
+
+
+        </form>
+
+        <div class="zona_navegacion">
+            <button class="btn_atras boton">Volver</button>
+            <button class="btn_seguir boton verde">Seguir</button>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="centrar">
+            <article class="pie-pagina">
+                <section class="subir">▲</section>
+                <section class="pie-pagina__logo">
+                    <img src="/images/logo-negativo.png" alt="" />
+                </section>
+                <section class="pie-pagina__contacto">
+                    <ul class="info-contacto">
+                        <li><strong>Telefono</strong> 313 211 2323</li>
+                        <li><strong>Móvil:</strong> 315 211 423 23</li>
+                        <li><strong>E-mail:</strong> cannio@info.correo.com</li>
+                        <li><strong>Cali - Colombia</strong></li>
+                    </ul>
+                </section>
+            </article>
+        </div>
+        <div class="pie-pagina__derechos">
+            <h2 class="centrar">Todos los derechas reservador</h2>
+        </div>
+    </footer>
 
 
     <script src="/js/almacen.js"></script>
     <script>
-
         let carrito = new Almacen("tienda");
         let intput__enviar = document.querySelector("#arregloProductos");
         intput__enviar.value = JSON.stringify(carrito.getProductos());
 
 
+        let pantallas = document.querySelectorAll(".pantalla__pedido");
+        let barras = document.querySelectorAll(".navegacion__pedido__lista li");
+        let atras = document.querySelector(".btn_atras");
+        let seguir = document.querySelector(".btn_seguir");
+        let actual = 0;
+        let views = [];
+
+
+
+        pantallas.forEach((p, i) => {
+            let o = {
+                navegacion: barras[i],
+                pantalla: p
+            };
+
+            if (i == 0) {
+                o.navegacion.style.background = "#F9B232";
+            } else if (i > 0) {
+                o.pantalla.style.display = "none";
+
+            }
+
+            views.push(o);
+
+        });
+
+        atras.addEventListener("click", function () {
+            if (actual - 1 > -1) {
+                seguir.innerHTML = "Seguir";
+                views[actual].navegacion.style.background = "#397BB5";
+                views[actual].pantalla.style.display = "none";
+                actual--;
+                if (actual - 1 <= -1) {
+                    atras.innerHTML = "Volver";
+                }
+                views[actual].pantalla.style.display = "flex";
+            } else {
+                console.log("final")
+                history.back();
+            }
+        });
+
+        seguir.addEventListener("click", function () {
+            if (actual + 1 < pantallas.length) {
+                atras.innerHTML = "Atras";
+                views[actual].pantalla.style.display = "none";
+                actual++;
+                if (actual + 1 >= pantallas.length) {
+                    seguir.innerHTML = "Enviar";
+                }
+                views[actual].navegacion.style.background = "#F9B232";
+                views[actual].pantalla.style.display = "flex";
+            } else {
+                console.log("final")
+                enviarFormulario();
+            }
+        });
+
+        let formulario = document.querySelector("#formulario__pedido");
+
+        function enviarFormulario() {
+            formulario.submit();
+        }
+
+
+
     </script>
+
 
 </body>
 
