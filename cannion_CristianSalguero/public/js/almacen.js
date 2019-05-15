@@ -22,8 +22,11 @@ var Almacen = /** @class */ (function () {
     function Almacen(id) {
         this.id = id;
         this.contador = document.createElement("p");
+  
         this.contador2 = document.createElement("p");
+   
         this.precio = document.createElement("p");
+       
         var data = JSON.parse(localStorage.getItem(id));
         if (data != null) {
             this.datos = data.datos;

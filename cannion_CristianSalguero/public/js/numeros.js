@@ -19,16 +19,7 @@ function paginaCargadaNuemro(){
         }
     }
 
-    var numeros = document.querySelectorAll(".articulo__informacion__precio");
-
-    numeros.forEach((n) => {
-        let text = (n.innerHTML).replace("$", "");
-        let num = parseInt(text);
-        
-        n.innerHTML = "$" + formatNumber.new(num);
-    });
-
-    numeros = document.querySelectorAll(".numero");
+    var numeros = document.querySelectorAll(".numero");
 
     numeros.forEach((n) => {
         let text = (n.innerHTML).replace("$", "");

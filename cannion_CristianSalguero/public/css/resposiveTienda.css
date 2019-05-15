@@ -122,6 +122,8 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    background: rgba(0, 0, 0, 0.342);
+    color: white;
   }
   .con-producto {
     -webkit-box-orient: vertical;
@@ -157,6 +159,9 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .navegacion__pedido li > h2 {
+    display: none;
   }
 }
 

@@ -19,6 +19,7 @@
         }
     }
 
+
     .filtro__opcion {
         display: flex;
         flex-direction: column;
@@ -102,6 +103,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        background: rgba(0, 0, 0, 0.342);
+        color: white;
     }
 
     .con-producto{
@@ -126,6 +129,13 @@
     .informacion__compra{
         display: flex;
         flex-direction: column;
+    }
+
+    
+    .navegacion__pedido{
+        & li > h2{
+            display: none;
+        }
     }
 
 }
