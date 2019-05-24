@@ -49,3 +49,62 @@ var Ruleta = /** @class */ (function () {
     };
     return Ruleta;
 }());
+var Mascotas = /** @class */ (function () {
+    function Mascotas(ruleta) {
+        this.ruleta = ruleta;
+        this.stage = this.ruleta.stage;
+        this.imagen = new createjs.Shape();
+        this.imagen.graphics.beginFill("gray").drawCircle(0, 0, 50);
+        this.stage.addChild(this.imagen);
+        this.iniciar();
+    }
+    Mascotas.prototype.iniciar = function () {
+        var _this = this;
+        this.imagen.on("mousedown", function () {
+            console.log(_this.ruleta.mascatas.indexOf(_this) != -1);
+            if (_this.ruleta.mascatas.indexOf(_this) != -1) {
+                _this.ruleta.mascatas.splice(_this.ruleta.mascatas.indexOf(_this), 1);
+                _this.ruleta.contenedor.removeChild(_this.imagen);
+            }
+            _this.stage.addChild(_this.imagen);
+            _this.imagen.x = _this.stage.mouseX;
+            _this.imagen.y = _this.stage.mouseY;
+            var angulo = Math.floor(360 / _this.ruleta.mascatas.length);
+            _this.ruleta.mascatas.forEach(function (m, i) {
+                var x = Math.floor(Math.sin(radianes(angulo * (i + 1))) * 200);
+                var y = Math.floor(Math.cos(radianes(angulo * (i + 1))) * 200);
+                console.log(angulo * (i + 1), y, angulo);
+                // m.imagen.x = x;
+                // m.imagen.y = y;
+                createjs.Tween.get(m.imagen).to({ x: x, y: y }, 500);
+            });
+        });
+        this.imagen.on("pressmove", function () {
+            _this.imagen.x = _this.stage.mouseX;
+            _this.imagen.y = _this.stage.mouseY;
+        });
+        this.imagen.on("pressup", function () {
+            _this.imagen.x = _this.stage.mouseX;
+            _this.imagen.y = _this.stage.mouseY;
+            var contenedor = _this.ruleta.contenedor;
+            if (_this.ruleta.ruleta.hitTest(_this.stage.mouseX - contenedor.x, _this.stage.mouseY - contenedor.y)) {
+                _this.stage.removeChild(_this.imagen);
+                _this.imagen.x = 0;
+                _this.imagen.y = 0;
+                contenedor.addChild(_this.imagen);
+                _this.ruleta.mascatas.push(_this);
+                var angulo_1 = Math.floor(360 / _this.ruleta.mascatas.length);
+                _this.ruleta.mascatas.forEach(function (m, i) {
+                    var x = Math.floor(Math.sin(radianes(angulo_1 * (i + 1))) * 200);
+                    var y = Math.floor(Math.cos(radianes(angulo_1 * (i + 1))) * 200);
+                    console.log(angulo_1 * (i + 1), y, angulo_1);
+                    // m.imagen.x = x;
+                    // m.imagen.y = y;
+                    createjs.Tween.get(m.imagen).to({ x: x, y: y }, 500);
+                });
+            }
+            _this.stage.update();
+        });
+    };
+    return Mascotas;
+}());
