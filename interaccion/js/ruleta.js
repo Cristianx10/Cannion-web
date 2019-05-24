@@ -108,3 +108,9 @@ var Mascotas = /** @class */ (function () {
     };
     return Mascotas;
 }());
+var juego = new Ruleta();
+juego.agregar();
+juego.agregar();
+juego.agregar();
+juego.agregar();
+juego.incluirEn("#juego");

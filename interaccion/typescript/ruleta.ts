@@ -161,3 +161,19 @@ class Mascotas {
     }
 }
 
+
+let juego = new Ruleta();
+
+juego.agregar();
+juego.agregar();
+juego.agregar();
+juego.agregar();
+
+
+
+
+
+
+
+juego.incluirEn("#juego");
+
