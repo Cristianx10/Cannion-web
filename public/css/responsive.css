@@ -1,0 +1,140 @@
+@media (max-width: 1218px) {
+  .producto:nth-child(2) {
+    margin-top: 0;
+  }
+  .producto:nth-child(3) {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .cabecera__prin__cont__cabecera__logo {
+    width: 70%;
+  }
+  .cabecera__prin__cont__cabecera__navegacion {
+    width: 30%;
+  }
+  .navegacion__prin ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (max-width: 980px) {
+  .producto {
+    width: 40%;
+  }
+  .tabla td {
+    width: 7%;
+  }
+  .cont__somos {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 720px) {
+  .cabecera__prin__cont__cabecera {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cabecera__prin__cont__cabecera__logo {
+    width: 100%;
+  }
+  .cabecera__prin__cont__cabecera__logo img {
+    width: 40%;
+  }
+  .cabecera__prin__cont__cabecera__navegacion {
+    width: 100%;
+  }
+  .navegacion__prin ul {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .cont__oferta,
+  .cont__testimonios__lista,
+  .cont_tienda {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .producto {
+    width: 80%;
+    margin: auto;
+  }
+  .producto:nth-child(1),
+  .producto:nth-child(2),
+  .producto:nth-child(3) {
+    margin-top: 20px;
+  }
+  .fecha__especifica {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .fecha__espeficica__ver {
+    width: 100%;
+    max-width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: 3em;
+  }
+  .fecha__especifica__info {
+    padding: 10px;
+    font-size: .5em;
+  }
+  .calendario {
+    font-size: 2em;
+  }
+  .calendario td {
+    height: 50px;
+  }
+  .tabla {
+    font-size: 1.3em;
+  }
+  .cont__somos {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cont__somos iframe {
+    width: 100%;
+    margin: 0;
+  }
+  .publicidad {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cont__publicidad {
+    overflow: hidden;
+  }
+  .cabecera__prin__cont__formulario {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: auto;
+  }
+  .cabecera__prin__cont__formulario .cabecera__prin__cont__formulario__principal {
+    width: 100%;
+  }
+  .cabecera__prin__cont__formulario .cabecera__prin__cont__formulario__registro {
+    width: 90%;
+    margin: auto;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */
