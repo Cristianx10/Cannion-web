@@ -72,7 +72,44 @@
         <h2>Nirvanna se han unido en una campaña y para ello trae un concierto portatil para las personas</h2>
 
 
+        <div id="juego"></div>
+        <div id="juego2"></div>
+        <div id="juego3"></div>
 
+        <script src="/lib/easeljs.js"></script>
+        <script src="/lib/preloadjs.js"></script>
+        <script src="/lib/soundjs.js"></script>
+        <script src="/lib/tweenjs.js"></script>
+        <script src="/js/ruleta.js"></script>
+
+        <script>
+
+            window.addEventListener("load", function () {
+                let juego = new Ruleta();
+                juego.agregar(200, 200, "/img/nir-04.png", "/sound/comeasur/bateria.mp3");
+                juego.agregar(200, 500, "/img/nir-03.png", "/sound/comeasur/guitarra.mp3");
+                juego.agregar(1000, 200, "/img/nir-08.png", "/sound/comeasur/voz.mp3");
+                
+                juego.incluirEn("#juego");
+
+
+                let juego2 = new Ruleta();
+                juego2.agregar(200, 200, "/img/nir-01.png", "/sound/heart/bateria.mp3");
+                juego2.agregar(200, 500, "/img/nir-09.png", "/sound/heart/guitarra.mp3");
+                juego2.agregar(1000, 200, "/img/nir-02.png", "/sound/heart/voz.mp3");
+                juego2.incluirEn("#juego2");
+
+
+                let juego3 = new Ruleta();
+                juego3.agregar(200, 200, "/img/nir-07.png", "/sound/smells/bateria.mp3");
+                juego3.agregar(200, 500, "/img/nir-06.png", "/sound/smells/bajo.mp3");
+                juego3.agregar(1000, 200, "/img/nir-05.png", "/sound/smells/voz.mp3");
+                juego3.incluirEn("#juego3");
+
+
+            });
+
+        </script>
 
     </div>
 
