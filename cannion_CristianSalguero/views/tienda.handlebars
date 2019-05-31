@@ -78,7 +78,7 @@
                         <a href="/carrito">
                             <div class="carrito bloque__carrito">
                                 <div class="carrito__icono icono carrito__numero">
-                                    <img src="/images/iconos/icon-carrito.svg" alt="">
+                                    <img id="o_carrito" src="/images/iconos/icon-carrito.svg" alt="">
                                 </div>
                                 <div class="carrito_num_articulos"></div>
                             </div>
@@ -330,8 +330,63 @@
     <script src="/js/almacen.js"></script>
     <script src="/js/atienda.js"></script>
     <script src="/js/numeros.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 
     <script>
+
+        function selector(url) {
+            let elemento = document.querySelector(url);
+            if (elemento == null) {
+                alert("No se encontro la id: " + url);
+            }
+            return elemento;
+        }
+
+        function selectorAll(url) {
+            let elemento = document.querySelectorAll(url);
+            if (elemento == null) {
+                alert("No se encontro la id: " + url);
+            }
+            return elemento;
+        }
+
+
+
+        let btn_agregar = selectorAll(".articulo__informacion__agregar");
+        console.log(btn_agregar)
+        btn_agregar.forEach((b) => {
+            b.addEventListener("click", () => {
+
+                var tl0 = new TimelineMax();
+                tl0.add(TweenMax.to(b, .2, { rotation: 360, x:20, y: -20, width:100, height:100, ease: Expo.easeOut }));
+                tl0.add(TweenMax.to(b, .2, { rotation: 0, x:0, y: 0, width:50, height:50}));
+
+                var tl = new TimelineMax();
+                tl.to("#o_carrito", .3, { rotation: 360 });
+                tl.to("#o_carrito", .3, { rotation: -45, y: 10 });
+                tl.to("#o_carrito", .1, { rotation: 0, y: 0 });
+
+                var tl2 = new TimelineMax();
+                tl2.to(".carrito__icono > p", 1, { rotation: 365, y: -30, x: -10, ease: Expo.easeOut });
+                tl2.to(".carrito__icono > p", .3, { rotation: -45, y: 10, opacity: 0 });
+                tl2.to(".carrito__icono > p", .5, { rotation: 0, y: 0 });
+                tl2.to(".carrito__icono > p", .3, { x: 0, opacity: 1 });
+
+                var tl3 = new TimelineMax();
+                tl3.to(".carrito_num_articulos", 1, { y: -50, opacity: 0, ease: Expo.easeOut });
+                tl3.to(".carrito_num_articulos", 0.1, { y: 50, opacity: 0, ease: Expo.easeOut });
+                tl3.to(".carrito_num_articulos", 0.5, { y: 0, opacity: 1, ease: Expo.easeOut });
+
+
+
+            })
+
+        });
+
+
+
+
+
 
     </script>
 </body>

@@ -59,12 +59,12 @@ class Ruleta {
             let xa = this.marcador.x;
             let ya = this.marcador.y;
 
-            console.log(x, y, xa, ya)
+            //console.log(x, y, xa, ya)
 
             let angulo = ((x * xa) + (y * ya)) / (Math.sqrt((x * x) + (y * y)) * (Math.sqrt((xa * xa) + (ya * ya))));
             let inclinacion = degrees(Math.acos(angulo));
             this.palillo.rotation = inclinacion * 2 - 60;
-            console.log(this.palillo.rotation)
+           // console.log(this.palillo.rotation)
 
         });
 
@@ -226,7 +226,7 @@ class Mascotas {
 
     iniciar() {
         this.imagen.on("mousedown", () => {
-            console.log(this.ruleta.mascatas.indexOf(this) != -1)
+            //console.log(this.ruleta.mascatas.indexOf(this) != -1)
             if (this.ruleta.mascatas.indexOf(this) != -1) {
                 this.ruleta.mascatas.splice(this.ruleta.mascatas.indexOf(this), 1)
                 this.ruleta.contenedor.removeChild(this.imagen);
@@ -242,7 +242,7 @@ class Mascotas {
             this.ruleta.mascatas.forEach((m, i) => {
                 let x = Math.floor(Math.sin(radianes(angulo * (i + 1))) * 200);
                 let y = Math.floor(Math.cos(radianes(angulo * (i + 1))) * 200);
-                console.log(angulo * (i + 1), y, angulo)
+                //console.log(angulo * (i + 1), y, angulo)
                 // m.imagen.x = x;
                 // m.imagen.y = y;
                 createjs.Tween.get(m.imagen).to({ x: x, y: y }, 500)
@@ -282,7 +282,7 @@ class Mascotas {
                 this.ruleta.mascatas.forEach((m, i) => {
                     let x = Math.floor(Math.sin(radianes(angulo * (i + 1))) * 200);
                     let y = Math.floor(Math.cos(radianes(angulo * (i + 1))) * 200);
-                    console.log(angulo * (i + 1), y, angulo)
+                    //console.log(angulo * (i + 1), y, angulo)
                     // m.imagen.x = x;
                     // m.imagen.y = y;
                     createjs.Tween.get(m.imagen).to({ x: x, y: y }, 500)
@@ -342,16 +342,4 @@ class Mascotas {
 }
 
 
-let juego = new Ruleta();
-
-juego.agregar(200, 200, "/img/nir-01.png", "/sound/comeasur/bajo.mp3");
-juego.agregar(200, 500, "/img/nir-02.png", "/sound/comeasur/bateria.mp3");
-juego.agregar(1000, 200, "/img/nir-03.png", "/sound/comeasur/guitarra.mp3");
-juego.agregar(1000, 500, "/img/nir-04.png", "/sound/comeasur/saxofon.mp3");
-
-
-
-
-
-juego.incluirEn("#juego");
 

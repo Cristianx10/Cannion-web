@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ruleta</title>
 </head>
+
 <body>
     <div id="juego"></div>
 
@@ -14,5 +16,21 @@
     <script src="/lib/soundjs.js"></script>
     <script src="/lib/tweenjs.js"></script>
     <script src="/js/ruleta.js"></script>
+
+    <script>
+
+        window.addEventListener("load", function () {
+            let juego = new Ruleta();
+
+            juego.agregar(200, 200, "/img/nir-01.png", "/sound/comeasur/bateria.mp3");
+            juego.agregar(200, 500, "/img/nir-03.png", "/sound/comeasur/guitarra.mp3");
+            juego.agregar(1000, 200, "/img/nir-02.png", "/sound/comeasur/voz.mp3");
+
+            juego.incluirEn("#juego");
+        });
+
+
+    </script>
 </body>
+
 </html>

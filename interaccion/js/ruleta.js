@@ -38,11 +38,11 @@ var Ruleta = /** @class */ (function () {
             var y = _this.ruleta.stage.mouseY;
             var xa = _this.marcador.x;
             var ya = _this.marcador.y;
-            console.log(x, y, xa, ya);
+            //console.log(x, y, xa, ya)
             var angulo = ((x * xa) + (y * ya)) / (Math.sqrt((x * x) + (y * y)) * (Math.sqrt((xa * xa) + (ya * ya))));
             var inclinacion = degrees(Math.acos(angulo));
             _this.palillo.rotation = inclinacion * 2 - 60;
-            console.log(_this.palillo.rotation);
+            // console.log(this.palillo.rotation)
         });
         this.marcador.on("pressup", function () {
             if (_this.palillo.rotation < -20) {
@@ -160,7 +160,7 @@ var Mascotas = /** @class */ (function () {
     Mascotas.prototype.iniciar = function () {
         var _this = this;
         this.imagen.on("mousedown", function () {
-            console.log(_this.ruleta.mascatas.indexOf(_this) != -1);
+            //console.log(this.ruleta.mascatas.indexOf(this) != -1)
             if (_this.ruleta.mascatas.indexOf(_this) != -1) {
                 _this.ruleta.mascatas.splice(_this.ruleta.mascatas.indexOf(_this), 1);
                 _this.ruleta.contenedor.removeChild(_this.imagen);
@@ -172,7 +172,7 @@ var Mascotas = /** @class */ (function () {
             _this.ruleta.mascatas.forEach(function (m, i) {
                 var x = Math.floor(Math.sin(radianes(angulo * (i + 1))) * 200);
                 var y = Math.floor(Math.cos(radianes(angulo * (i + 1))) * 200);
-                console.log(angulo * (i + 1), y, angulo);
+                //console.log(angulo * (i + 1), y, angulo)
                 // m.imagen.x = x;
                 // m.imagen.y = y;
                 createjs.Tween.get(m.imagen).to({ x: x, y: y }, 500);
@@ -204,7 +204,7 @@ var Mascotas = /** @class */ (function () {
                 _this.ruleta.mascatas.forEach(function (m, i) {
                     var x = Math.floor(Math.sin(radianes(angulo_1 * (i + 1))) * 200);
                     var y = Math.floor(Math.cos(radianes(angulo_1 * (i + 1))) * 200);
-                    console.log(angulo_1 * (i + 1), y, angulo_1);
+                    //console.log(angulo * (i + 1), y, angulo)
                     // m.imagen.x = x;
                     // m.imagen.y = y;
                     createjs.Tween.get(m.imagen).to({ x: x, y: y }, 500);
@@ -253,9 +253,3 @@ var Mascotas = /** @class */ (function () {
     };
     return Mascotas;
 }());
-var juego = new Ruleta();
-juego.agregar(200, 200, "/img/nir-01.png", "/sound/comeasur/bajo.mp3");
-juego.agregar(200, 500, "/img/nir-02.png", "/sound/comeasur/bateria.mp3");
-juego.agregar(1000, 200, "/img/nir-03.png", "/sound/comeasur/guitarra.mp3");
-juego.agregar(1000, 500, "/img/nir-04.png", "/sound/comeasur/saxofon.mp3");
-juego.incluirEn("#juego");
