@@ -10,32 +10,94 @@ class Ruleta {
 
     stage: createjs.Stage;
     canvas: HTMLCanvasElement;
-
     contenedor: createjs.Container;
     ruleta: createjs.Bitmap;
     movimiento: createjs.Tween;
     mascatas: Array<Mascotas>;
     cargar: any;
     totalMascotas: Array<Mascotas>;
+    marcador: createjs.Container;
+    palillo: createjs.Bitmap;
+    punto: createjs.Shape;
 
+    intento: number;
 
     constructor() {
         this.canvas = document.createElement("canvas");
+        this.canvas.style.background = "red";
         this.canvas.width = 1280;
         this.canvas.height = 720;
         this.stage = new createjs.Stage(this.canvas);
         this.stage.update();
 
         this.ruleta = new createjs.Bitmap("/img/disco.png");
+        let soporte = new createjs.Bitmap("/img/base.png");
         this.ruleta.regX = 487 / 2;
         this.ruleta.regY = 487 / 2;
+        soporte.x = 330;
+        soporte.y = 160;
+        this.intento = 0;
 
         this.contenedor = new createjs.Container();
         this.mascatas = new Array();
         this.totalMascotas = new Array();
 
+
+        this.marcador = new createjs.Container();
+        this.palillo = new createjs.Bitmap("/img/marcador.png");
+        this.punto = new createjs.Shape();
+
+        this.marcador.x = 408;
+        this.marcador.y = 166;
+        this.palillo.regX = 67;
+        this.palillo.regY = 97;
+
+        this.marcador.on("pressmove", () => {
+            let x = this.ruleta.stage.mouseX;
+            let y = this.ruleta.stage.mouseY;
+
+            let xa = this.marcador.x;
+            let ya = this.marcador.y;
+
+            console.log(x, y, xa, ya)
+
+            let angulo = ((x * xa) + (y * ya)) / (Math.sqrt((x * x) + (y * y)) * (Math.sqrt((xa * xa) + (ya * ya))));
+            let inclinacion = degrees(Math.acos(angulo));
+            this.palillo.rotation = inclinacion * 2 - 60;
+            console.log(this.palillo.rotation)
+
+        });
+
+        this.marcador.on("pressup", () => {
+
+            if (this.palillo.rotation < -20) {
+                if (this.intento == 0) {
+                    this.reproducir();
+                    this.intento = 1;
+                } else {
+                    this.totalMascotas.forEach((m) => {
+                        m.play()
+                    });
+                }
+
+                this.movimiento.paused = false;
+            }
+            else {
+                this.totalMascotas.forEach((m) => {
+                    m.stop()
+                });
+                this.movimiento.paused = true;
+            }
+        });
+
+        //createjs.Tween.get(this.marcador,{loop: -1 }).to({ rotation: 360 }, 2000);
+
+        this.marcador.addChild(this.palillo);
+
+        this.stage.addChild(soporte)
         this.contenedor.addChild(this.ruleta);
         this.stage.addChild(this.contenedor);
+        this.stage.addChild(this.marcador);
 
         this.movimiento = new createjs.Tween(this.contenedor, { loop: -1 });
 
@@ -56,6 +118,7 @@ class Ruleta {
 
 
         this.movimiento.to({ rotation: 360 }, 5000);
+        this.movimiento.paused = true;
 
         this.stage.on("stagemousedown", () => {
             // this.movimiento.paused = !this.movimiento.paused;
@@ -87,7 +150,6 @@ class Ruleta {
             if (play) {
                 this.totalMascotas.forEach((m) => {
                     m.playSound();
-                    m.muted();
                 });
                 clearInterval(this.cargar);
                 console.log("cargados");
@@ -96,10 +158,9 @@ class Ruleta {
 
         }, 2000);
 
-
-
-
     }
+
+
 
     incluirEn(ubicacion: string) {
         let elemento: HTMLElement = <HTMLElement>document.querySelector(ubicacion);
@@ -115,7 +176,7 @@ class Mascotas {
     imagen: createjs.Sprite;
     movimiento: createjs.Tween;
     cargar: createjs.LoadQueue;
-    sonido?: string;
+    sonido?: createjs.AbstractSoundInstance;
 
     constructor(ruleta: Ruleta, url: string) {
         this.ruleta = ruleta;
@@ -243,24 +304,39 @@ class Mascotas {
         this.cargar.loadFile({ id: url, src: url });
         this.cargar.on("complete", (sound) => {
             this.sonido = createjs.Sound.createInstance(url);
+            this.sonido.muted = true;
         });
     }
 
     playSound() {
         if (this.sonido != null) {
             this.sonido.play();
-            console.log("play")
+            this.sonido.loop = 1;
+        }
+
+    }
+
+    play() {
+        if (this.sonido != null) {
+           
+            this.sonido.paused = false;
+        }
+    }
+
+    stop() {
+        if (this.sonido != null) {
+            this.sonido.paused = true;
         }
     }
 
     muted() {
         if (this.sonido != null) {
-            this.sonido.muted =true;
+            this.sonido.muted = true;
         }
     }
     unmuted() {
         if (this.sonido != null) {
-            this.sonido.muted =false;
+            this.sonido.muted = false;
         }
     }
 }
@@ -274,7 +350,6 @@ juego.agregar(1000, 200, "/img/nir-03.png", "/sound/comeasur/guitarra.mp3");
 juego.agregar(1000, 500, "/img/nir-04.png", "/sound/comeasur/saxofon.mp3");
 
 
-juego.reproducir();
 
 
 
