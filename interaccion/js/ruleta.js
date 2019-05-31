@@ -15,8 +15,11 @@ var Ruleta = /** @class */ (function () {
         this.stage = new createjs.Stage(this.canvas);
         this.stage.update();
         this.ruleta = new createjs.Bitmap("/img/disco.png");
+        this.ruleta.regX = 487 / 2;
+        this.ruleta.regY = 487 / 2;
         this.contenedor = new createjs.Container();
         this.mascatas = new Array();
+        this.totalMascotas = new Array();
         this.contenedor.addChild(this.ruleta);
         this.stage.addChild(this.contenedor);
         this.movimiento = new createjs.Tween(this.contenedor, { loop: -1 });
@@ -39,9 +42,31 @@ var Ruleta = /** @class */ (function () {
         createjs.Ticker.addEventListener("tick", this.stage);
         this.stage.update();
     };
-    Ruleta.prototype.agregar = function () {
-        var pet = new Mascotas(this);
+    Ruleta.prototype.agregar = function (x, y, url, sonido) {
+        var pet = new Mascotas(this, url);
+        this.totalMascotas.push(pet);
+        pet.mover(x, y);
+        pet.cargarSonido(sonido);
         this.stage.update();
+    };
+    Ruleta.prototype.reproducir = function () {
+        var _this = this;
+        this.cargar = setInterval(function () {
+            var play = true;
+            _this.totalMascotas.forEach(function (m) {
+                if (m.sonido == null) {
+                    play = false;
+                }
+            });
+            if (play) {
+                _this.totalMascotas.forEach(function (m) {
+                    m.playSound();
+                    m.muted();
+                });
+                clearInterval(_this.cargar);
+                console.log("cargados");
+            }
+        }, 2000);
     };
     Ruleta.prototype.incluirEn = function (ubicacion) {
         var elemento = document.querySelector(ubicacion);
@@ -50,13 +75,16 @@ var Ruleta = /** @class */ (function () {
     return Ruleta;
 }());
 var Mascotas = /** @class */ (function () {
-    function Mascotas(ruleta) {
+    function Mascotas(ruleta, url) {
         this.ruleta = ruleta;
         this.stage = this.ruleta.stage;
+        this.cargar = new createjs.LoadQueue();
+        createjs.Sound.alternateExtensions = ["mp3"];
+        this.cargar.installPlugin(createjs.Sound);
         var width = 151;
-        var height = 228;
+        var height = 226;
         var data = {
-            images: ["/img/nir-01.png"],
+            images: [url],
             frames: {
                 width: width, height: height, regX: width / 2,
                 regY: height / 2, spacing: 0, margin: 0
@@ -74,9 +102,9 @@ var Mascotas = /** @class */ (function () {
         };
         var spray = new createjs.SpriteSheet(data);
         this.imagen = new createjs.Sprite(spray);
-        this.imagen.gotoAndPlay("run");
         this.movimiento = new createjs.Tween(this.imagen, { loop: -1 });
         this.movimiento.to({ rotation: 360 }, 5000);
+        this.movimiento.paused = true;
         //this.imagen.graphics.beginFill("gray").drawCircle(0, 0, 50);
         this.stage.addChild(this.imagen);
         this.iniciar();
@@ -101,6 +129,10 @@ var Mascotas = /** @class */ (function () {
                 // m.imagen.y = y;
                 createjs.Tween.get(m.imagen).to({ x: x, y: y }, 500);
             });
+            _this.imagen.gotoAndStop("stop");
+            _this.movimiento.paused = true;
+            _this.imagen.rotation = 0;
+            _this.muted();
         });
         this.imagen.on("pressmove", function () {
             _this.imagen.x = _this.stage.mouseX;
@@ -110,13 +142,17 @@ var Mascotas = /** @class */ (function () {
             _this.imagen.x = _this.stage.mouseX;
             _this.imagen.y = _this.stage.mouseY;
             var contenedor = _this.ruleta.contenedor;
-            if (_this.ruleta.ruleta.hitTest(_this.stage.mouseX - contenedor.x, _this.stage.mouseY - contenedor.y)) {
+            var tam = contenedor.getBounds();
+            if (_this.ruleta.ruleta.hitTest(_this.stage.mouseX - contenedor.x + tam.width / 2, _this.stage.mouseY - contenedor.y + tam.height / 2)) {
                 _this.stage.removeChild(_this.imagen);
                 _this.imagen.x = 0;
                 _this.imagen.y = 0;
                 contenedor.addChild(_this.imagen);
                 _this.ruleta.mascatas.push(_this);
+                _this.imagen.gotoAndPlay("run");
                 var angulo_1 = Math.floor(360 / _this.ruleta.mascatas.length);
+                _this.movimiento.paused = false;
+                _this.unmuted();
                 _this.ruleta.mascatas.forEach(function (m, i) {
                     var x = Math.floor(Math.sin(radianes(angulo_1 * (i + 1))) * 200);
                     var y = Math.floor(Math.cos(radianes(angulo_1 * (i + 1))) * 200);
@@ -129,11 +165,39 @@ var Mascotas = /** @class */ (function () {
             _this.stage.update();
         });
     };
+    Mascotas.prototype.mover = function (x, y) {
+        this.imagen.x = x;
+        this.imagen.y = y;
+    };
+    Mascotas.prototype.cargarSonido = function (url) {
+        var _this = this;
+        this.cargar.loadFile({ id: url, src: url });
+        this.cargar.on("complete", function (sound) {
+            _this.sonido = createjs.Sound.createInstance(url);
+        });
+    };
+    Mascotas.prototype.playSound = function () {
+        if (this.sonido != null) {
+            this.sonido.play();
+            console.log("play");
+        }
+    };
+    Mascotas.prototype.muted = function () {
+        if (this.sonido != null) {
+            this.sonido.muted = true;
+        }
+    };
+    Mascotas.prototype.unmuted = function () {
+        if (this.sonido != null) {
+            this.sonido.muted = false;
+        }
+    };
     return Mascotas;
 }());
 var juego = new Ruleta();
-juego.agregar();
-juego.agregar();
-juego.agregar();
-juego.agregar();
+juego.agregar(200, 200, "/img/nir-01.png", "/sound/comeasur/bajo.mp3");
+juego.agregar(200, 500, "/img/nir-02.png", "/sound/comeasur/bateria.mp3");
+juego.agregar(1000, 200, "/img/nir-03.png", "/sound/comeasur/guitarra.mp3");
+juego.agregar(1000, 500, "/img/nir-04.png", "/sound/comeasur/saxofon.mp3");
+juego.reproducir();
 juego.incluirEn("#juego");
