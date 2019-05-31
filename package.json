@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.2"
+    "express-handlebars": "^3.0.2",
+    "mongodb": "^3.2.4",
+    "nodemon": "^1.19.0"
   },
   "devDependencies": {
     "mongodb": "^3.2.4",
