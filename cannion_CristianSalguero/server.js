@@ -20,9 +20,19 @@ var baseDatos;
 const assert = require('assert');
 
 // Connect using MongoClient
-MongoClient.connect(url, function(err, client) {
+MongoClient.connect(
+  "mongodb+srv://cristianx10:cluster0-lyy4u.mongodb.net/tienda",
+  
+  {
+    auth:{
+      user:"cristianx10",
+      password:"contrasenasegura2019zxc"
+    }
+  }
+  , function(err, client) {
   baseDatos = client.db(dbName);
 
+  app.listen(process.env.PORT || 1234);
   //client.close();
 });
 
@@ -219,6 +229,7 @@ app.get("/carrito", function(request, response) {
 
   response.render("carrito", contenido);
 });
+
 
 app.listen(3000, function() {
   console.log("Escuchando en el puesto 3000");
