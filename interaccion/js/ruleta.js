@@ -14,7 +14,7 @@ var Ruleta = /** @class */ (function () {
         this.canvas.height = 720;
         this.stage = new createjs.Stage(this.canvas);
         this.stage.update();
-        this.ruleta = new createjs.Shape();
+        this.ruleta = new createjs.Bitmap("/img/disco.png");
         this.contenedor = new createjs.Container();
         this.mascatas = new Array();
         this.contenedor.addChild(this.ruleta);
@@ -25,13 +25,13 @@ var Ruleta = /** @class */ (function () {
     Ruleta.prototype.iniciar = function () {
         this.contenedor.x = this.canvas.width / 2;
         this.contenedor.y = this.canvas.height / 2;
-        this.ruleta.graphics
-            .beginFill("green")
-            .drawCircle(0, 0, 300)
-            .beginFill("red")
-            .drawCircle(0, 0, 100)
-            .beginFill("blue")
-            .drawCircle(200, 0, 10);
+        /*  this.ruleta.graphics
+              .beginFill("green")
+              .drawCircle(0, 0, 300)
+              .beginFill("red")
+              .drawCircle(0, 0, 100)
+              .beginFill("blue")
+              .drawCircle(200, 0, 10);*/
         this.movimiento.to({ rotation: 360 }, 5000);
         this.stage.on("stagemousedown", function () {
             // this.movimiento.paused = !this.movimiento.paused;
@@ -53,8 +53,31 @@ var Mascotas = /** @class */ (function () {
     function Mascotas(ruleta) {
         this.ruleta = ruleta;
         this.stage = this.ruleta.stage;
-        this.imagen = new createjs.Shape();
-        this.imagen.graphics.beginFill("gray").drawCircle(0, 0, 50);
+        var width = 151;
+        var height = 228;
+        var data = {
+            images: ["/img/nir-01.png"],
+            frames: {
+                width: width, height: height, regX: width / 2,
+                regY: height / 2, spacing: 0, margin: 0
+            },
+            animations: {
+                stop: {
+                    frames: [0],
+                    speed: 0.3
+                },
+                run: {
+                    frames: [0, 1, 2],
+                    speed: 0.3
+                }
+            }
+        };
+        var spray = new createjs.SpriteSheet(data);
+        this.imagen = new createjs.Sprite(spray);
+        this.imagen.gotoAndPlay("run");
+        this.movimiento = new createjs.Tween(this.imagen, { loop: -1 });
+        this.movimiento.to({ rotation: 360 }, 5000);
+        //this.imagen.graphics.beginFill("gray").drawCircle(0, 0, 50);
         this.stage.addChild(this.imagen);
         this.iniciar();
     }
