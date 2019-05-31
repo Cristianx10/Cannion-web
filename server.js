@@ -230,7 +230,7 @@ app.get("/carrito", function(request, response) {
   response.render("carrito", contenido);
 });
 
-
+/*
 app.listen(3000, function() {
   console.log("Escuchando en el puesto 3000");
-});
+});*/
