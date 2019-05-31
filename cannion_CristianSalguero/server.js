@@ -21,7 +21,7 @@ const assert = require('assert');
 
 // Connect using MongoClient
 MongoClient.connect(
-  "mongodb+srv://cristianx10:cluster0-lyy4u.mongodb.net/tienda",
+  "mongodb+srv://cluster0-lyy4u.mongodb.net/tienda",
   
   {
     auth:{
